@@ -1,0 +1,41 @@
+h1 {
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+    border: solid rgb(0, 0, 0);
+    color: red;
+}
+
+body {
+    background-color: rgb(255, 255, 255);
+
+
+}
+
+li {
+    color: rgb(0, 0, 0);
+    display:inline
+    
+}
+
+ul{
+    display:inline-block;
+    display:flex;
+    justify-content: center;
+}
+
+div {
+    display: flex;
+    background-color: rgb(131, 65, 65);
+    justify-content: center;
+    align-items: center;
+}
+
+
+nav {
+    display: flex;
+    width: 75%;
+    height: 100vh;
+    background-color: rgb(219, 117, 117);
+    margin-inline: auto;
+}
