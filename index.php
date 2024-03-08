@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="style.css?v=1">
     <title>Pokémon projekt</title>
 </head>
-<body>
+<body id="bodyindex">
 
 <div id="pasekL">
 
@@ -19,7 +19,7 @@
 
 <div id="menu">
         <ul>
-            <li><a href="https://monolit.onrender.com/auth?destination=https://localhost/Pokémon/loginreceiver.php&clientid=018df488-c521-7477-9a00-970921f3fd91">Login</a></li> 
+            <li><a href="login.php">Login</a></li> 
 |
             <li>Advanced Search</li>
 |   
