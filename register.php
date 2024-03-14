@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css?v=1">
+    <link rel="stylesheet" href="./css/style.login.register.css?v=1">
     <title>Register</title>
 </head>
-<body id="bodylogin">
+<body id="bodyl">
 
 <div id="pasekL">
 </div>
@@ -19,7 +19,7 @@
         <ul>
             <li><a href="index.php">Main Page</a></li> 
 |   
-            <li>Would, wouldn't<li>
+            <li><a href="wouldwouldnt.php">Would, wouldn't<li>
 |
             <li><a href="login.php">Login</a><li>
         </ul>  
@@ -28,7 +28,7 @@
 
 <nav id="navl">
 
-<form id="form" method="post" action="registerhandler.php">
+<form id="forml" method="post" action="registerhandler.php">
         <label>Name</label>
         <input type="text" name="name">
         <label>Email</label>

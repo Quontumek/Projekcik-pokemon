@@ -3,9 +3,6 @@ require "db.php";
 
 session_start();
 
-//var_dump($_POST);
-//echo $_POST["password"];
-
 
 $email = mysqli_real_escape_string($conn, $_POST["mail"]);
 $query = "SELECT * FROM login WHERE EMAIL = ?";
