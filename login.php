@@ -1,3 +1,8 @@
+<?php
+session_start();
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,9 +25,11 @@
 
 <div id="menul">
         <ul>
-            <li><a href="index.php">Main Page</a></li> 
+                <li><a href="index.php">Main Page</a></li> 
 |   
-            <li><a href="wouldwouldnt.php">Would, wouldn't</a><li>
+                <li><a href="wouldwouldnt.php"></a>Would, wouldn't</a><li>
+|
+                <li id="dashlink"><a href="dashboardlogin.php">Dashboard</a><li>
         </ul>  
 </div>
 
@@ -34,11 +41,11 @@
 <br>
 <br>
         <label>Email</label>
-        <input type="text" name="mail">
+        <input type="text" name="mail" autocomplete="off">
         <label>Password</label>
-        <input type="password" name="password">
+        <input type="password" name="password" autocomplete="off">
 <br>
-        <button type="submit" name="logsubmit">Submit</button>
+        <button class="btn" type="submit" name="logsubmit">Submit</button>
 <br>
 <br>
 <br>
@@ -49,3 +56,14 @@
 
 </body>
 </html>
+
+
+<script type="text/javascript">
+        document.getElementById("dashlink").onclick = function () {
+                if (!isset $_SESSION["mail"])
+        alert("You need to be logged in to access this page!");
+        header ("Location: login.php");
+        };
+        if (isset $_SESSION["mail"])
+        header ("Location: dashboardlogin.php");
+</script>

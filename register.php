@@ -29,27 +29,41 @@
 
 
 <nav id="navl">
-
-
-
 <form id="forml" method="post" action="registerhandler.php">
-<br>
-<br>
-<br>
-        <label>Name</label>
-        <input type="text" name="name">
-        <label>Email</label>
-        <input type="text" name="mail">
-        <label>Password</label>
-        <input type="password" name="password">
-        <label>Confirm Password</label>
-        <input type="password" name="confirmpassword">
-        <br>
-        <button type="submit" name="regsubmit">Submit</button>
-    </form>    
 
-    
+<br>
+<br>
+<br>
+        <div class="form-control">
+                <label for="email">E-mail</label>
+                <input type="text" id="email" placeholder="Enter e-mail" data-validate="email">
+                <div class="error-holder"></div>
+        </div>
+        <div class="form-control">
+                <label for="nip">Name</label>
+                <input type="text" id="name" placeholder="Enter name" data-validate="name">
+                <div class="error-holder"></div>
+        </div>
+            <div class="form-control">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter password" data-validate="password">
+        <div class="error-holder"></div>
+        </div>
+        <div class="form-control">
+                <label for="password2">Confirm password</label>
+                <input type="password" id="password2" placeholder="Confirm password" data-validate="password-repeat">
+                <div class="error-holder"></div>
+        </div>
+<br>
+        <button type="submit" name="regsubmit">Submit</button>
+
+</form>    
 </nav>
+
+<script>
+    <script src="./validation.js"></script>
+</script>
+
 
 </body>
 </html>

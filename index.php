@@ -1,3 +1,8 @@
+<?php
+session_start();
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,13 +28,15 @@
             <li><a href="login.php">Login</a></li> 
 |
             <li><a href="register.php">Register</a></li>
-
+|
+            <li id="dashlink"><a href="dashboardlogin.php">Dashboard</a><li>
         </ul>  
 </div>
 
+
 <div id="block">
     <h3 style="text-align: center;">
-            <li>Poke-Dex</li>  
+            <li>Poké-Dex</li>  
 </div>
 
 <div id="block">
@@ -38,7 +45,16 @@
 </div>
 
 
-
-
 </body>
 </html>
+
+
+<script type="text/javascript">
+        document.getElementById("dashlink").onclick = function () {
+                if (!isset $_SESSION["mail"])
+        alert("You need to be logged in to access this page!");
+        header ("Location: login.php");
+        };
+        if (isset $_SESSION["mail"])
+        header ("Location: dashboardlogin.php");
+</script>
