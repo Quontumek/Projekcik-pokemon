@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Ojuju:wght@200..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+body {
+    font-family: 'Ojuju', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url("./Images/paski-tlo.jpg");
+    background-size: cover;
+}
+
+header {
+    position: relative;
+    background-image: url('./Images/pokemonbanner.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    font-family: 'Bebas Neue', sans-serif;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+h1 {
+    position: relative;
+    z-index: 1;
+}
+nav {
+    background-color: rgb(255, 255, 255);
+    border-bottom: 3px solid black;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    flex-direction: left;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+}
+
+main {
+    display: flex;
+    flex-direction: left;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+section {
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 20px;
+    width: 45%;
+}
+
+section h2 {
+    margin-top: 0;
+    font-size: 24px;
+    color: rgb(192, 45, 45);
+}
+
+section ul {
+    padding-left: 20px;
+    font-size: 18px;
+}
+
+#logout {
+    background-color: rgb(192, 45, 45);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#logout:hover {
+    background-color: rgb(139, 0, 0);
+}
