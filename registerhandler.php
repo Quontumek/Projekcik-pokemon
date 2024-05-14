@@ -1,5 +1,5 @@
 <?php
-    $conn = mysqli_connect("localhost","root","","pokedatabase");
+    require "db.php";
     
 
     $password = mysqli_real_escape_string($conn, $_POST["password"]);
