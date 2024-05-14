@@ -40,7 +40,7 @@ $stmt->close();
 </head>
 <body>
     <header>
-        <h1>Twój Dashboard <button type="submit" id="logout">Logout</button><img src="./Images/pokemonbanner.jpg" alt="Banner Pokemon"></h1>
+        <h1>Your Dashboard <button type="submit" id="logout">Logout</button><img src="./Images/pokemonbanner.jpg" alt="Banner Pokemon"></h1>
         <nav>
             <ul>
                 <li><a href="index.php">Home</a></li>

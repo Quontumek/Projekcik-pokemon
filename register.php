@@ -8,14 +8,14 @@
 </head>
 <body id="bodyl" style="background-image: url('./Images/paski-tlo.jpg')">
 
-<div id="pasekL">
+<div id="pasekL-reg">
 <img src="./Images/valor.png" alt="Team Valor">
 </div>
-<div id="pasekR">
+<div id="pasekR-reg">
 <img src="./Images/instinct.png" alt="Team Instinct">
 </div>
 
-<h1 id="h1register"><img src="./Images/HEY_YOU.png" alt="HEY YOU">Register<img src="./Images/REGISTER_NOW.png" alt="REGISTER_NOW"></h1>
+<h1 id="h1register"><img src="./Images/HEY_YOU.png" alt="HEY YOU">Register<img src="./Images/REGISTER_NOW.png" alt="REGISTER NOW"></h1>
 
 <div id="menul">
         <ul>
@@ -29,40 +29,38 @@
 
 
 <nav id="navl">
-<form id="forml" method="post" action="registerhandler.php">
-
-<br>
-<br>
-<br>
-        <div class="form-control">
+<form id="my_form" action="registerhandler.php" method="post">
+            <div class="form-control">
                 <label for="email">E-mail</label>
-                <input type="text" id="email" placeholder="Enter e-mail" data-validate="email">
+                <input type="text" id="email" name="email" placeholder="Enter e-mail" data-validate="email">
                 <div class="error-holder"></div>
-        </div>
-        <div class="form-control">
-                <label for="nip">Name</label>
-                <input type="text" id="name" placeholder="Enter name" data-validate="name">
+            </div>
+            <div class="form-control">
+                <label for="Name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter name" data-validate="name">
                 <div class="error-holder"></div>
-        </div>
+            </div>
             <div class="form-control">
                 <label for="password">Password</label>
-                <input type="password" id="password" placeholder="Enter password" data-validate="password">
-        <div class="error-holder"></div>
-        </div>
-        <div class="form-control">
+                <input type="password" id="password" name="password" placeholder="Enter password" data-validate="password">
+                <div class="error-holder"></div>
+            </div>
+            <div class="form-control">
                 <label for="password2">Confirm password</label>
                 <input type="password" id="password2" placeholder="Confirm password" data-validate="password-repeat">
                 <div class="error-holder"></div>
-        </div>
-<br>
-        <button type="submit" name="regsubmit">Submit</button>
-
-</form>    
+            </div>
+            <div class="form-control">
+                <button type="submit" name="regsubmit">Register</button>
+            </div>
+        </form>
 </nav>
 
-<script>
-    <script src="./validation.js"></script>
+
+<script 
+        src="./validation.js">
 </script>
+
 
 
 </body>

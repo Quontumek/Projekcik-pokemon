@@ -13,10 +13,10 @@ session_start();
 </head>
 <body id="bodyl" style="background-image: url('./Images/paski-tlo.jpg')">
 
-<div id="pasekL">
+<div id="pasekL-log">
 <img src="./Images/valor.png" alt="Team Valor">
 </div>
-<div id="pasekR">
+<div id="pasekR-log">
 <img src="./Images/instinct.png" alt="Team Instinct">
 </div>
 
@@ -39,13 +39,18 @@ session_start();
 
 <br>
 <br>
-<br>
+<br>    <div class="form-control">
         <label>Email</label>
         <input type="text" name="mail" autocomplete="off">
+        </div>
+        <div class="form-control">
         <label>Password</label>
         <input type="password" name="password" autocomplete="off">
+        </div>
 <br>
-        <button class="btn" type="submit" name="logsubmit">Submit</button>
+        <div class="form-control">
+                <button type="submit" name="logsubmit">Login</button>
+            </div>
 <br>
 <br>
 <br>
@@ -57,13 +62,14 @@ session_start();
 </body>
 </html>
 
-
 <script type="text/javascript">
-        document.getElementById("dashlink").onclick = function () {
-                if (!isset $_SESSION["mail"])
-        alert("You need to be logged in to access this page!");
-        header ("Location: login.php");
-        };
-        if (isset $_SESSION["mail"])
-        header ("Location: dashboardlogin.php");
+    document.getElementById("dashlink").onclick = function () {
+        if(!"<?php echo isset($_SESSION['mail']); ?>") {
+            alert("You need to be logged in to access this page!");
+            return false;
+        }
+        if ("<?php echo isset($_SESSION['mail']); ?>") {
+            window.location.href = "dashboardlogin.php";
+        }
+    }
 </script>
