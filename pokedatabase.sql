@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Maj 13, 2024 at 05:48 PM
+-- Generation Time: Maj 14, 2024 at 05:28 PM
 -- Wersja serwera: 10.4.32-MariaDB
 -- Wersja PHP: 8.2.12
 
@@ -188,6 +188,26 @@ INSERT INTO `images` (`ID`, `image`) VALUES
 (149, 'IMG-66423519979a93.55789451.png'),
 (150, 'IMG-66423521149bb5.68909941.png'),
 (151, 'IMG-664235290fa970.77934487.png');
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `login`
+--
+
+CREATE TABLE `login` (
+  `ID` int(11) NOT NULL,
+  `NAME` text NOT NULL,
+  `PASSWORD` varchar(100) NOT NULL,
+  `EMAIL` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `login`
+--
+
+INSERT INTO `login` (`ID`, `NAME`, `PASSWORD`, `EMAIL`) VALUES
+(9, '123', '$2y$10$NWP9WYyUDxNuE3tXy2BUEO5LYmngPpk0AyCe5/jYFaES5vuX/LHcq', '123');
 
 -- --------------------------------------------------------
 
@@ -751,6 +771,12 @@ ALTER TABLE `images`
   ADD PRIMARY KEY (`ID`);
 
 --
+-- Indeksy dla tabeli `login`
+--
+ALTER TABLE `login`
+  ADD PRIMARY KEY (`ID`);
+
+--
 -- Indeksy dla tabeli `pokemon`
 --
 ALTER TABLE `pokemon`
@@ -786,6 +812,12 @@ ALTER TABLE `wwt`
 --
 ALTER TABLE `images`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=152;
+
+--
+-- AUTO_INCREMENT for table `login`
+--
+ALTER TABLE `login`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `wwt`
