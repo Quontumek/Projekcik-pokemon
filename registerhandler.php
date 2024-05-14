@@ -1,5 +1,5 @@
 <?php
-    require "db.php";
+    $conn = mysqli_connect("localhost","root","","pokedatabase");
     
 
     $password = mysqli_real_escape_string($conn, $_POST["password"]);
@@ -7,3 +7,4 @@
 
     mysqli_query($conn, "INSERT INTO login (NAME,PASSWORD,EMAIL) VALUES ('{$_POST['name']}','{$hashed_password}','{$_POST['email']}')");
     header("Location: login.php");
+    
