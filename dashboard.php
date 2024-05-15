@@ -44,8 +44,8 @@ $stmt->close();
         <nav>
             <ul>
                 <li><a href="index.php">Home</a></li>
-                <li><a href="">The Game</a></li>
-                <li><a href="pokedex.php">Dex</a></li>
+                <li><a href="#">The List</a></li>
+                <li><a href="#">Settings</a></li>
                 
             </ul>
         </nav>

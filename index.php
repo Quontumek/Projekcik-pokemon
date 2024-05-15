@@ -36,13 +36,14 @@ session_start();
 
 <div id="block">
     <h3 style="text-align: center;">
-            <li>Poké-Dex</li>  
+            <li><a href="pokedex.php">Poké-Dex</a></li>  
 </div>
 
 <div id="block">
     <h3 style="text-align: center;"> 
             <li><a href="wouldwouldnt.php">Would / Wouldn't</a><li>
 </div>
+    
 
 
 </body>
@@ -51,10 +52,10 @@ session_start();
 
 <script type="text/javascript">
         document.getElementById("dashlink").onclick = function () {
-                if (!isset $_SESSION["mail"])
+                if (!isset($_SESSION["mail"]))
         alert("You need to be logged in to access this page!");
         header ("Location: login.php");
         };
-        if (isset $_SESSION["mail"])
+        if (isset($_SESSION["mail"]))
         header ("Location: dashboardlogin.php");
 </script>

@@ -6,7 +6,7 @@ include "db.php";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.login.register.css?v=1">
+    <link rel="stylesheet" href="./css/style.dex.css?v=1">
     <title>PokeDex</title>
 </head>
 <body style="background-image: url('./Images/paski-tlo.jpg')">
@@ -34,27 +34,26 @@ include "db.php";
     <h3 style="text-align: center;"> 
             <li><a href="wouldwouldnt.php">Would / Wouldn't</a><li>
 </div>
+<div id="dex">
 <?php
     $sql = "SELECT * FROM images ORDER BY ID ASC";
     $res = mysqli_query($conn,$sql);
     if(mysqli_num_rows($res)> 0){
-        while($images = mysqli_fetch_assoc($res)){  
+        $pokeid = 0;
+        $pokeid = $pokeid + 1;
+        while($images = mysqli_fetch_assoc($res)){ 
+            
             ?>
-        <div class="alb">
+        <div class="alb" id="<?=$pokeid?>">
             <img src="uploads/<?=$images['image']?>">
         </div>
             <?php 
     }
 }?>
-    
-
-
-
+</div>
 
 
 
 </body>
 </html>
-
-
 
