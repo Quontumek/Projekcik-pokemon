@@ -1,5 +1,5 @@
 <?php
-include "db.php";
+include "db.php"
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,18 +38,22 @@ include "db.php";
 <?php
     $sql = "SELECT * FROM images ORDER BY ID ASC";
     $res = mysqli_query($conn,$sql);
+    $pokeid = 0;
     if(mysqli_num_rows($res)> 0){
-        $pokeid = 0;
-        $pokeid = $pokeid + 1;
+        
         while($images = mysqli_fetch_assoc($res)){ 
-            
+            $pokeid = $pokeid + 1;
             ?>
-        <div class="alb" id="<?=$pokeid?>">
+        <div class="alb elementToHover" id="<?=$pokeid?>">
             <img src="uploads/<?=$images['image']?>">
+            <p class="elementToPopup">Tu będzie popup</p>
         </div>
             <?php 
     }
 }?>
+<script
+        src="./popup.js">
+</script>
 </div>
 
 
