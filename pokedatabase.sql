@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Maj 13, 2024 at 05:48 PM
--- Wersja serwera: 10.4.32-MariaDB
--- Wersja PHP: 8.2.12
+-- Generation Time: May 14, 2024 at 06:18 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `images`
+-- Table structure for table `images`
 --
 
 CREATE TABLE `images` (
@@ -192,7 +192,27 @@ INSERT INTO `images` (`ID`, `image`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `pokemon`
+-- Table structure for table `login`
+--
+
+CREATE TABLE `login` (
+  `ID` int(11) NOT NULL,
+  `NAME` text NOT NULL,
+  `PASSWORD` varchar(100) NOT NULL,
+  `EMAIL` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `login`
+--
+
+INSERT INTO `login` (`ID`, `NAME`, `PASSWORD`, `EMAIL`) VALUES
+(12, 'skibidi', '$2y$10$z3dQ9Ti9bRpfVXQO7Xt60.sVBAFbuU4tfodKbmoBiVWD5KJoNzmW2', 'phillip@christensen.pl');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pokemon`
 --
 
 CREATE TABLE `pokemon` (
@@ -366,7 +386,7 @@ INSERT INTO `pokemon` (`ID`, `Pokemon_name`, `Primary_type`, `Secondary_type`, `
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `stats`
+-- Table structure for table `stats`
 --
 
 CREATE TABLE `stats` (
@@ -539,7 +559,7 @@ INSERT INTO `stats` (`ID`, `HP`, `ATK`, `DEF`, `SATK`, `SDEF`, `SPD`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `types`
+-- Table structure for table `types`
 --
 
 CREATE TABLE `types` (
@@ -575,7 +595,7 @@ INSERT INTO `types` (`ID`, `Type`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `wwt`
+-- Table structure for table `wwt`
 --
 
 CREATE TABLE `wwt` (
@@ -741,17 +761,23 @@ INSERT INTO `wwt` (`ID`, `likes`) VALUES
 (151, 0);
 
 --
--- Indeksy dla zrzutów tabel
+-- Indexes for dumped tables
 --
 
 --
--- Indeksy dla tabeli `images`
+-- Indexes for table `images`
 --
 ALTER TABLE `images`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Indeksy dla tabeli `pokemon`
+-- Indexes for table `login`
+--
+ALTER TABLE `login`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `pokemon`
 --
 ALTER TABLE `pokemon`
   ADD PRIMARY KEY (`ID`),
@@ -759,20 +785,20 @@ ALTER TABLE `pokemon`
   ADD KEY `Secondary_type` (`Secondary_type`);
 
 --
--- Indeksy dla tabeli `stats`
+-- Indexes for table `stats`
 --
 ALTER TABLE `stats`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Indeksy dla tabeli `types`
+-- Indexes for table `types`
 --
 ALTER TABLE `types`
   ADD PRIMARY KEY (`ID`),
   ADD KEY `Type` (`Type`);
 
 --
--- Indeksy dla tabeli `wwt`
+-- Indexes for table `wwt`
 --
 ALTER TABLE `wwt`
   ADD PRIMARY KEY (`ID`);
@@ -786,6 +812,12 @@ ALTER TABLE `wwt`
 --
 ALTER TABLE `images`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=152;
+
+--
+-- AUTO_INCREMENT for table `login`
+--
+ALTER TABLE `login`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `wwt`

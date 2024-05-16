@@ -59,6 +59,12 @@ session_start();
 
 </nav>
 
+<div id="black-rectangle">
+                <ul id="tmV_ul">Team Valor</ul>
+                <ul id="tmI_ul">Team Instinct</ul>
+                <ul id="tmM_ul">Team Mystic</ul>
+</div>
+
 </body>
 </html>
 

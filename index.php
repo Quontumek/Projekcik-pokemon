@@ -36,14 +36,20 @@ session_start();
 
 <div id="block">
     <h3 style="text-align: center;">
-            <li><a href="pokedex.php">Poké-Dex</a></li>  
+            <li>Poké-Dex</li>  
 </div>
 
 <div id="block">
     <h3 style="text-align: center;"> 
             <li><a href="wouldwouldnt.php">Would / Wouldn't</a><li>
 </div>
-    
+
+     
+<div id="black-rectangle">
+                <ul id="tmV_ul">Team Valor</ul>
+                <ul id="tmI_ul">Team Instinct</ul>
+                <ul id="tmM_ul">Team Mystic</ul>
+</div>
 
 
 </body>
@@ -51,11 +57,13 @@ session_start();
 
 
 <script type="text/javascript">
-        document.getElementById("dashlink").onclick = function () {
-                if (!isset($_SESSION["mail"]))
-        alert("You need to be logged in to access this page!");
-        header ("Location: login.php");
-        };
-        if (isset($_SESSION["mail"]))
-        header ("Location: dashboardlogin.php");
+    document.getElementById("dashlink").onclick = function () {
+        if(!"<?php echo isset($_SESSION['mail']); ?>") {
+            alert("You need to be logged in to access this page!");
+            window.location.href = "login.php"
+        }
+        if ("<?php echo isset($_SESSION['mail']); ?>") {
+            window.location.href = "dashboardlogin.php";
+        }
+    }
 </script>
