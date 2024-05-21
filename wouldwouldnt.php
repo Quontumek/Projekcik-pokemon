@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.wouldwouldnt.css?v=1">
     <title>Would Wouldn't</title>
+    <link rel="icon" href="./Images/pikachuicon.png" />
 </head>
 <body>
 

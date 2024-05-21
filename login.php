@@ -10,14 +10,15 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.login.register.css?v=1">
     <title>Login</title>
+    <link rel="icon" href="./Images/pikachuicon.png" />
 </head>
 <body id="bodyl" style="background-image: url('./Images/paski-tlo.jpg')">
 
 <div id="pasekL-log">
-<img src="./Images/valor.png" alt="Team Valor">
+<img id="vb" src="./Images/valor.png" alt="Team Valor">
 </div>
 <div id="pasekR-log">
-<img src="./Images/instinct.png" alt="Team Instinct">
+<img id="ib" src="./Images/instinct.png" alt="Team Instinct">
 </div>
 
 
@@ -25,11 +26,13 @@ session_start();
 
 <div id="menul">
         <ul>
-                <li><a href="index.php">Main Page</a></li> 
-|   
-                <li><a href="wouldwouldnt.php"></a>Would, wouldn't</a><li>
+            <li class="buttons" id="mainpage"><a href="index.php">Main Page</a></li>
+|        
+            <li class="buttons" id="loginButton"><a href="login.php">Login</a></li> 
 |
-                <li id="dashlink"><a href="dashboardlogin.php">Dashboard</a><li>
+            <li class="buttons" id="registerButton"><a href="register.php">Register</a></li>
+|
+            <li class="buttons" id="dashboard"><a href="dashboardlogin.php">Dashboard</a></li>
         </ul>  
 </div>
 
@@ -39,22 +42,25 @@ session_start();
 
 <br>
 <br>
-<br>    <div class="form-control">
+<br>    
         <label>Email</label>
-        <input type="text" name="mail" autocomplete="off">
-        </div>
         <div class="form-control">
+        <input class="field" type="text" name="mail" autocomplete="off">
+        </div>
         <label>Password</label>
-        <input type="password" name="password" autocomplete="off">
+        <div class="form-control">
+        <input class="field" type="password" name="password" autocomplete="off">
         </div>
 <br>
         <div class="form-control">
                 <button type="submit" name="logsubmit">Login</button>
-            </div>
+                <br>
+                You may press this button if already logged in!
+        </div>
 <br>
 <br>
 <br>
-        <a id="a"href="register.php">Sorry im stupid. I dont have an account yet</a>
+        <a id="a"href="register.php">Sorry im stupid. I dont have an account yet..</a>
     </form>    
 
 </nav>
@@ -69,7 +75,7 @@ session_start();
 </html>
 
 <script type="text/javascript">
-    document.getElementById("dashlink").onclick = function () {
+    document.getElementById("dashboard").onclick = function () {
         if(!"<?php echo isset($_SESSION['mail']); ?>") {
             alert("You need to be logged in to access this page!");
             return false;
@@ -78,4 +84,8 @@ session_start();
             window.location.href = "dashboardlogin.php";
         }
     }
+
+
 </script>
+
+

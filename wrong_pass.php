@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.wrongpass.css?v=1">
-    <title>Złe hasło</title>
+    <title>Wrong Password</title>
+    <link rel="icon" href="./Images/pikachuicon.png" />
 </head>
 
 <body>
-    <h2>Podane hasło lub email jest nieprawidłowe</h2>
+    <h2>Wrong password given, try again.</h2>
     <nav> 
-        <button><a href="login.php">Wróć</a></button>
+        <button><a href="login.php">Return</a></button>
     </nav>
 </body>
 </html>

@@ -8,6 +8,7 @@ include "db.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.dex.css">
     <title>PokeDex</title>
+    <link rel="icon" href="./Images/pikachuicon.png" />
 </head>
 <body style="background-image: url('./Images/paski-tlo.jpg')">
 
@@ -16,11 +17,13 @@ include "db.php";
 <div id="menu">
     
         <ul>
-            <li><a href="login.php">Login</a></li> 
+            <li class="buttons" id="mainpage"><a href="index.php">Main Page</a></li>
+|        
+            <li class="buttons" id="loginButton"><a href="login.php">Login</a></li> 
 |
-            <li><a href="index.php">Main page</a></li>
+            <li class="buttons" id="registerButton"><a href="register.php">Register</a></li>
 |
-            <li id="dashlink"><a href="dashboardlogin.php">Dashboard</a><li>
+            <li class="buttons" id="dashboard"><a href="dashboardlogin.php">Dashboard</a></li>
         </ul>  
 </div>
 
@@ -48,7 +51,19 @@ include "db.php";
 
 
 <script
-        src="./popup.js">
+        src="./js/popup.js">
+</script>
+
+<script type="text/javascript">
+    document.getElementById("dashboard").onclick = function () {
+        if(!"<?php echo isset($_SESSION['mail']); ?>") {
+            alert("You need to be logged in to access this page!");
+            return false;
+        }
+        if ("<?php echo isset($_SESSION['mail']); ?>") {
+            window.location.href = "dashboardlogin.php";
+        }
+    }
 </script>
 
 </body>

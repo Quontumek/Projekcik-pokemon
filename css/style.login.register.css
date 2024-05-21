@@ -24,6 +24,16 @@
     justify-content: center;
 }
 */
+img {
+    max-width:100%;
+    max-height:100%;
+    border-top: 1px solid black;
+    margin: auto;
+    width: 10%;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
 
 h1 {
     display: flex;
@@ -39,8 +49,11 @@ h1 {
     margin: auto;
     width: 55.5%;
     align-items: center;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
 }
-#h1register{display: flex;
+#h1register{
+    display: flex;
     justify-content: center;
     height: 8vw;
     border: 2px solid rgb(0, 0, 0);
@@ -53,6 +66,8 @@ h1 {
     margin: auto;
     width: 55.5%;
     align-items: center;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
 }
 
 
@@ -67,6 +82,9 @@ h1 {
     width: 55.5%;
     align-items: center;
     text-decoration: none;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    margin-bottom: 20px;
 }
 
 #my_form {
@@ -98,11 +116,11 @@ ul{
     justify-content: center;
     height: 60px;
     border:10px solid rgb(20, 57, 100);
-    width: 450px;
+    width: 550px;
     align-items: center;
     margin-inline: auto;
     background-color: white;
-    font-size: 0.9vw;
+    font-size: 1.1vw;
     text-decoration: none;
 }
 
@@ -114,9 +132,28 @@ li {
     text-decoration: none;
 }
 
-input{
+.buttons .visited {
+    border: solid black 2px;
+    padding: 2.5px;
+    background-color: royalblue;
+    color: rgb(0, 0, 0);
+}
+
+.buttons :hover {
+    border: solid black 2px;
+    padding: 2.5px;
+    background-color: royalblue;
+    border-radius: 2.5px;
+    color: white;
+}
+
+.field {
     width: 300px;
     height: 30px;
+}
+
+.field :hover {
+    border: 1px solid black;    
 }
 
 label{
@@ -128,6 +165,7 @@ div {
     background-color: rgb(139, 139, 139);
     justify-content: center;
     align-items: center;
+    
 }
 
 #pasekL-reg{    
@@ -137,33 +175,36 @@ div {
     margin-left: auto;
     width: 15%;
 }
-#pasekL-log{    
-    float: left;
-    height: 100vh;
-    border-right: 2px solid black;
-    margin-left: auto;
-    width: 15%;
-}
-
-img {
-    max-width:100%;
-    max-height:100%;
-    border-top: 1px solid black;
-    position: absolute;
-    top: 0;
-    width: 20vh;
-    border: 2px solid black;
-    border-radius: 10px;
-}
 
 #pasekR-reg{    
     float: right;
     height: 120vh;
     border-left: 2px solid black;
+    margin-left: auto;
+    width: 15%;
+}
+
+#vb, #ib{
+    max-width:100%;
+    max-height:100%;
+    border-top: 1px solid black;
+    position: absolute;
+    top: 0;
+    width: 10%;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+
+#pasekL-log{    
+    float: left;
+    height: 100vh;
+    border-right: 2px solid black;
     margin-right: auto;
     width: 15%;
 }
-#pasekR-log{    
+
+#pasekR-log{
     float: right;
     height: 100vh;
     border-left: 2px solid black;
@@ -196,11 +237,20 @@ a{
     margin-bottom: 20px;
 }
 
+label {
+    margin-bottom:  5px;
+    background-color: rgb(139, 139, 139);
+    width: 250px;
+    text-align: center;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
 .form-control {
     width: 50%;
     padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ddd;
+    margin-bottom: 10px; 
+    margin-top: 0px; 
     border-radius: 5px;
     display: flex;
     flex-direction: column;
@@ -288,4 +338,12 @@ a{
     font-size: x-large;
     padding: 10px;
     font-weight: bold;
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+    font-family: Arial, sans-serif;
+    text-wrap: wrap;
 }

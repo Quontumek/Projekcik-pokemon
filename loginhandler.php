@@ -18,6 +18,7 @@ if (mysqli_num_rows($result) == 1) {
     $row = mysqli_fetch_assoc($result);
     if (password_verify($password, $row["PASSWORD"])) {
         $_SESSION["mail"] = $email;
+        sleep(2);
         header("Location: dashboard.php");
         exit();
     } else {

@@ -37,6 +37,8 @@ $stmt->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.dash.css?v=1">
+    <title>Dashboard</title>
+    <link rel="icon" href="./Images/pikachuicon.png" />
 </head>
 <body>
     <header>
@@ -44,7 +46,7 @@ $stmt->close();
         <nav>
             <ul>
                 <li><a href="index.php">Home</a></li>
-                <li><a href="">The Game</a></li>
+                <li><a href="wouldwouldnt.php">The Game</a></li>
                 <li><a href="pokedex.php">Dex</a></li>
                 
             </ul>

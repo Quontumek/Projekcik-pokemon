@@ -44,6 +44,13 @@ h1 {
     margin-left: auto;
     width: 15%;
 }
+#pasekR{
+    float: right;
+    height: 100vh;
+    border-left: 2px solid black;
+    margin-right: auto;
+    width: 15%;
+}
 
 img {
     max-width:100%;
@@ -51,18 +58,9 @@ img {
     border-top: 1px solid black;
     position: absolute;
     top: 0;
-    width: 20vh;
+    width: 10%;
     border: 2px solid black;
     border-radius: 10px;
-}
-
-#pasekR{    
-    float: right;
-    height: 100vh;
-    border-left: 2px solid black;
-    margin-right: auto;
-    width: 15%;
-    position: relative;
 }
 
 #menu {
@@ -74,7 +72,9 @@ img {
     border: 2px solid rgb(0, 0, 0);
     margin: auto;
     width: 55.5%;
-
+    text-size-adjust: 50px;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
 }
 
 nav {
@@ -94,19 +94,47 @@ ul{
     justify-content: center;
     height: 3vw;
     border:10px solid rgb(100, 20, 20);
-    width: 450px;
+    width: 550px;
     align-items: center;
     margin-inline: auto;
     background-color: white;
-    font-size: 0.9vw;
+    font-size: 1.1vw;
     text-decoration: none;
+    margin-bottom: 24px;
+
 }
 
 li {
-    color: rgb(0, 0, 0);
     display: block;
     background: transparent;
+    border-radius: 5px;
+    color: white;
 }
+
+.buttons .visited {
+    border: solid black 2px;
+    padding: 2.5px;
+    background-color: rgb(192, 45, 45);
+    color: rgb(0, 0, 0);
+}
+
+.buttons :hover {
+    border: solid black 2px;
+    padding: 2.5px;
+    background-color: rgb(192, 45, 45);
+    border-radius: 2.5px;
+    color: white;
+}
+
+.lowerbuttons{
+    font-size: 3.5vw;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
 
 div {
     display: flex;
@@ -130,10 +158,6 @@ div {
     font-size: xx-large;
 }
 
-a{
-    text-decoration: none;
-    color: black;
-}
 
 #black-rectangle {
     position: fixed;

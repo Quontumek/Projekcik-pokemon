@@ -10,6 +10,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.index.css?v=1">
     <title>Pokémon projekt</title>
+    <link rel="icon" href="./Images/pikachuicon.png" />
 </head>
 <body style="background-image: url('./Images/paski-tlo.jpg')">
 
@@ -25,23 +26,25 @@ session_start();
 <div id="menu">
     
         <ul>
-            <li><a href="login.php">Login</a></li> 
+            <li class="buttons" id="mainpage"><a href="index.php">Main Page</a></li>
+|        
+            <li class="buttons" id="loginButton"><a href="login.php">Login</a></li> 
 |
-            <li><a href="register.php">Register</a></li>
+            <li class="buttons" id="registerButton"><a href="register.php">Register</a></li>
 |
-            <li id="dashlink"><a href="dashboardlogin.php">Dashboard</a><li>
+            <li class="buttons" id="dashboard"><a href="dashboardlogin.php">Dashboard</a></li>
         </ul>  
 </div>
 
 
 <div id="block">
     <h3 style="text-align: center;">
-            <li>Poké-Dex</li>  
+            <li class="lowerbuttons"><a href="pokedex.php">Poké-Dex</a></li>  
 </div>
 
 <div id="block">
     <h3 style="text-align: center;"> 
-            <li><a href="wouldwouldnt.php">Would / Wouldn't</a><li>
+            <li class="lowerbuttons"><a href="wouldwouldnt.php">Would / Wouldn't</a><li>
 </div>
 
      
@@ -51,19 +54,29 @@ session_start();
                 <ul id="tmM_ul">Team Mystic</ul>
 </div>
 
-
-</body>
-</html>
-
-
 <script type="text/javascript">
-    document.getElementById("dashlink").onclick = function () {
+    document.getElementById("dashboard").onclick = function () {
         if(!"<?php echo isset($_SESSION['mail']); ?>") {
             alert("You need to be logged in to access this page!");
-            window.location.href = "login.php"
+            return false;
         }
         if ("<?php echo isset($_SESSION['mail']); ?>") {
             window.location.href = "dashboardlogin.php";
         }
     }
+    document.getElementById("loginButton").onclick = function () {
+        setTimeout(function() {
+            window.location.href = "login.php";
+        }, 2000);
+    }
+
+    document.getElementById("registerButton").onclick = function () {
+        setTimeout(function() {
+            window.location.href = "register.php";
+        }, 2000);
+    }
+
 </script>
+</body>
+</html>
+
