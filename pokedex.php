@@ -1,7 +1,5 @@
 <?php
 include "db.php";
-
-session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,13 +17,13 @@ session_start();
 <div id="menu">
     
         <ul>
-            <li class="buttons" id="mainpage"><a href="index">Main Page</a></li>
+            <li class="buttons" id="mainpage"><a href="index.php">Main Page</a></li>
 |        
-            <li class="buttons" id="loginButton"><a href="login">Login</a></li> 
+            <li class="buttons" id="loginButton"><a href="login.php">Login</a></li> 
 |
-            <li class="buttons" id="registerButton"><a href="register">Register</a></li>
+            <li class="buttons" id="registerButton"><a href="register.php">Register</a></li>
 |
-            <li class="buttons" id="dashboard"><a href="dashboardlogin">Dashboard</a></li>
+            <li class="buttons" id="dashboard"><a href="dashboardlogin.php">Dashboard</a></li>
         </ul>  
 </div>
 
@@ -41,7 +39,83 @@ session_start();
          ?>
         <div class="alb elementToHover" id="<?=$pokeid?>">
             <img src="uploads/<?=$images['image']?>">
-            <p class="elementToPopup">Tu będzie popup</p>
+            <div class="elementToPopup">
+                    
+                    <?php
+                       $sql2 = "SELECT pokemon.*, 
+                       stats.*, 
+                       primary_type.type AS PrimaryType, 
+                       secondary_type.type AS SecondaryType
+                FROM pokemon
+                INNER JOIN stats ON pokemon.ID = stats.ID
+                LEFT JOIN types AS primary_type ON pokemon.Primary_type = primary_type.ID
+                LEFT JOIN types AS secondary_type ON pokemon.Secondary_type = secondary_type.ID
+                WHERE pokemon.ID = $pokeid;
+                ";
+                       $result = $conn->query($sql2);
+                       while($row = $result->fetch_assoc()){
+                        echo "<table>
+                        <caption>
+                            ".$row["ID"].". ".$row["Pokemon_name"]."
+                        </caption>
+                        <thead>
+                            <th>HP</th>
+                            <th>Attack</th>
+                            <th>Defense</th>
+                            <th>Special Attack</th>
+                            <th>Special Defense</th>
+                            <th>Speed</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>".$row["HP"]."</td>
+                                <td>".$row["ATK"]."</td>
+                                <td>".$row["DEF"]."</td>
+                                <td>".$row["SATK"]."</td>
+                                <td>".$row["SDEF"]."</td>
+                                <td>".$row["SPD"]."</td>
+                            </tr>
+                        </tbody>
+                        </table>
+                        <section><p>Type:</p>
+                        ";
+                        $types = [
+                            0 => '',
+                            1 => 'normal',
+                            2 => 'fire',
+                            3 => 'water',
+                            4 => 'electric',
+                            5 => 'grass',
+                            6 => 'ice',
+                            7 => 'fighting',
+                            8 => 'poison',
+                            9 => 'ground',
+                            10 => 'flying',
+                            11 => 'psychic',
+                            12 => 'bug',
+                            13 => 'rock',
+                            14 => 'ghost',
+                            15 => 'dragon',
+                            16 => 'dark',
+                            17 => 'steel',
+                            18 => 'fairy'
+                        ];
+                        
+                        $typeClass = $types[$row["Primary_type"]] ?? 'unknown';
+                        $typeClass2 = $types[$row["Secondary_type"]] ?? 'unknown';
+                        echo "<div class=\"$typeClass type\">" . ucfirst($typeClass) . "</div>";
+                        if($row["Secondary_type"] == 0){
+                            echo "";
+                        } else{
+                        echo "<div class=\"$typeClass2 type\">" . ucfirst($typeClass2) . "</div>";
+                        }
+
+
+
+                        echo "</section>";
+                       }
+                    ?>
+                </div>
         </div>
             <?php 
     }
@@ -63,7 +137,7 @@ session_start();
             return false;
         }
         if ("<?php echo isset($_SESSION['mail']); ?>") {
-            window.location.href = "dashboardlogin";
+            window.location.href = "dashboardlogin.php";
         }
     }
 </script>
