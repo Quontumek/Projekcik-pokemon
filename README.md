@@ -1,2 +1,2 @@
 # Projekcik-pokemon
-Projekt ee pokemon
+Projekt Pokemonowy Na Witrynki :)
