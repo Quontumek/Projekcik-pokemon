@@ -26,19 +26,19 @@ session_start();
 
 <div id="menul">
         <ul>
-            <li class="buttons" id="mainpage"><a href="index.php">Main Page</a></li>
+            <li class="buttons" id="mainpage"><a href="index">Main Page</a></li>
 |        
-            <li class="buttons" id="loginButton"><a href="login.php">Login</a></li> 
+            <li class="buttons" id="loginButton"><a href="login">Login</a></li> 
 |
-            <li class="buttons" id="registerButton"><a href="register.php">Register</a></li>
+            <li class="buttons" id="registerButton"><a href="register">Register</a></li>
 |
-            <li class="buttons" id="dashboard"><a href="dashboardlogin.php">Dashboard</a></li>
+            <li class="buttons" id="dashboard"><a href="dashboardlogin">Dashboard</a></li>
         </ul>  
 </div>
 
 <nav id="navl">
 
-<form id="forml" method="post" action="loginhandler.php">
+<form id="forml" method="post" action="loginhandler">
 
 <br>
 <br>
@@ -60,7 +60,7 @@ session_start();
 <br>
 <br>
 <br>
-        <a id="a"href="register.php">Sorry im stupid. I dont have an account yet..</a>
+        <a id="a"href="register">Sorry im stupid. I dont have an account yet..</a>
     </form>    
 
 </nav>
@@ -81,7 +81,7 @@ session_start();
             return false;
         }
         if ("<?php echo isset($_SESSION['mail']); ?>") {
-            window.location.href = "dashboardlogin.php";
+            window.location.href = "dashboardlogin";
         }
     }
 

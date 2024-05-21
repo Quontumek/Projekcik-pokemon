@@ -11,7 +11,7 @@
 <body>
     <h2>Wrong password given, try again.</h2>
     <nav> 
-        <button><a href="login.php">Return</a></button>
+        <button><a href="login">Return</a></button>
     </nav>
 </body>
 </html>

@@ -20,19 +20,19 @@
 
 <div id="menul">
         <ul>
-            <li class="buttons" id="mainpage"><a href="index.php">Main Page</a></li>
+            <li class="buttons" id="mainpage"><a href="index">Main Page</a></li>
 |        
-            <li class="buttons" id="loginButton"><a href="login.php">Login</a></li> 
+            <li class="buttons" id="loginButton"><a href="login">Login</a></li> 
 |
-            <li class="buttons" id="registerButton"><a href="register.php">Register</a></li>
+            <li class="buttons" id="registerButton"><a href="register">Register</a></li>
 |
-            <li class="buttons" id="dashboard"><a href="dashboardlogin.php">Dashboard</a></li>
+            <li class="buttons" id="dashboard"><a href="dashboardlogin">Dashboard</a></li>
         </ul>  
 </div>
 
 
 <nav id="navl">
-<form id="my_form" action="registerhandler.php" method="post">
+<form id="my_form" action="registerhandler" method="post">
 
 
                 <label for="Email">E-mail</label>
@@ -76,7 +76,7 @@
             return false;
         }
         if ("<?php echo isset($_SESSION['mail']); ?>") {
-            window.location.href = "dashboardlogin.php";
+            window.location.href = "dashboardlogin";
         }
     }
 </script>

@@ -20,9 +20,9 @@
 
 <div id="menu">
         <ul>
-        <li><a href="index.php">Main Page</a></li>     
+        <li><a href="index">Main Page</a></li>     
 |        
-        <li><a href="login.php">Login</a></li> 
+        <li><a href="login">Login</a></li> 
 |
             <li>Advanced Search</li>
         </ul>  

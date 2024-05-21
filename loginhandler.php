@@ -19,12 +19,12 @@ if (mysqli_num_rows($result) == 1) {
     if (password_verify($password, $row["PASSWORD"])) {
         $_SESSION["mail"] = $email;
         sleep(2);
-        header("Location: dashboard.php");
+        header("Location: dashboard");
         exit();
     } else {
-        header("Location: wrong_pass.php");
+        header("Location: wrong_pass");
     }
 } else {
-    header("Location: wrong_pass.php");
+    header("Location: wrong_pass");
 }
 

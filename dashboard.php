@@ -4,7 +4,7 @@ require "db.php";
 session_start();
 
 if (!isset($_SESSION["mail"])) {
-    header("Location: login.php");
+    header("Location: login");
     exit(); 
 }
 
@@ -45,9 +45,9 @@ $stmt->close();
         <h1>Your Dashboard <button type="submit" id="logout">Logout</button><img src="./Images/pokemonbanner.jpg" alt="Banner Pokemon"></h1>
         <nav>
             <ul>
-                <li><a href="index.php">Home</a></li>
-                <li><a href="wouldwouldnt.php">The Game</a></li>
-                <li><a href="pokedex.php">Dex</a></li>
+                <li><a href="index">Home</a></li>
+                <li><a href="wouldwouldnt">The Game</a></li>
+                <li><a href="pokedex">Dex</a></li>
                 
             </ul>
         </nav>
@@ -78,7 +78,7 @@ $stmt->close();
 
 <script type="text/javascript">
     document.getElementById("logout").onclick = function () {
-        location.href = "logout.php";
+        location.href = "logout";
     };
 
 
