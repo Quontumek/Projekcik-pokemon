@@ -135,27 +135,28 @@ div.elementToHover{
     display: flex;
     place-content: center;
 }
-p.elementToPopup{
+div.elementToPopup{
     display: none;
     position: absolute;
     top: -60px;
     z-index: 1;
-    background: #00732c;
+    background: royalblue;
     padding: 8px;
     font-size: 1rem;
     color: #fff;
     border-radius: 2px;
     animation: fadeIn 0.6s;
+    border: 2px solid black;
 }
 
-p.elementToPopup:before{
+div.elementToPopup:before{
     content: "";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    margin-left: -8px;
-    border: 8px solid transparent;
-    border-top: 8px solid #00732c;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -8px;
+  border: 8px solid transparent;
+  border-top: 8px solid royalblue;
 }
 @keyframes fadeIn {
     from {
@@ -165,3 +166,56 @@ p.elementToPopup:before{
       opacity: 1;
     }
    }
+
+   table {
+    border-collapse: collapse;
+    border: 2px solid rgb(160 160 160);
+    font-family: sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+  }
+  
+  caption {
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  
+  th,
+  td {
+    border: 1px solid rgb(160 160 160);
+    padding: 8px 10px;
+  }
+
+  td{
+    text-align: center;
+  }
+  section{
+    padding: none;
+    width: 20%;
+  }
+  div.type{
+    border: 1px solid black;
+    border-radius: 25px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+
+  div.normal{background-color: #929fa7;}
+  div.fire{background-color: #f6974a;}
+  div.water{background-color: #2f8ece;}
+  div.electric{color: black;background-color: #efdb44;}
+  div.grass{background-color: #64b568;}
+  div.ice{color: black;background-color: #37c9c6;}
+  div.fighting{background-color: #d72624;}
+  div.poison{background-color: #bf52d1;}
+  div.ground{background-color: #c47242;}
+  div.flying{color: black;background-color: #79b0cf;}
+  div.psychic{background-color: #e1838b;}
+  div.bug{background-color: #8db765;}
+  div.rock{background-color: #bab58e;}
+  div.ghost{background-color: #6255ad;}
+  div.dragon{background-color: #2b67ab;}
+  div.dark{background-color: #505b65;}
+  div.steel{background-color: #568686;}
+  div.fairy{background-color: #db8fe4;}
