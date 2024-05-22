@@ -143,7 +143,7 @@ if (mysqli_num_rows($res) > 0) {
                         <div class="type" style="<?=$backgroundStyle?>"><?= ucfirst($primaryType) . ($secondaryType ? ' / ' . ucfirst($secondaryType) : '') ?></div>
                         <div class="weight-height">
                             <p>Weight/Height</p>
-                            <p><?= $row["Avg_weight"] / 10 ?>kg/<?= number_format($row["Avg_height"] * 0.3048, 2) ?>m</p>
+                            <p id="w-h-numbers"><?= $row["Avg_weight"] / 10 ?>kg/<?= number_format($row["Avg_height"] * 0.3048, 2) ?>m</p>
                         </div>
                     </div>
                 </section>
