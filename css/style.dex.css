@@ -288,6 +288,10 @@ caption .pokemon-name {
     --fairy: #D685AD;
 }
 
+#w-h-numbers{
+    margin-left: 20px;
+  }
+
 div.type {
     border: 1px solid black;
     border-radius: 25px;
