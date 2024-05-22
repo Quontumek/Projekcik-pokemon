@@ -9,6 +9,40 @@ body {
    flex-wrap: wrap;
 }
 
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  width: 50%;
+  height: 50px;
+  background-color: rgb(139, 139, 139);
+  border: 2px solid rgb(0, 0, 0);
+  border-radius: 6px;
+  margin: auto;
+  margin-top: 20px;
+  align-items: left;
+  display: inline
+}
+
+#searchbar {
+  width: 47%;
+  height: 40px;
+  margin-top: 2px;
+}
+
+#searchbtn{
+  width: 26%;
+  height: 100%;
+  float: right;
+  margin-top: 15px;
+}
+#resetbtn {
+  width: 26%;
+  height: 100%;
+  float: left;
+  margin-top: 15px;
+}
+
+
 
 h1 {
     display: flex;
@@ -59,6 +93,8 @@ ul{
     text-decoration: none;
 }
 
+
+
 .buttons .visited {
     border: solid black 2px;
     padding: 2.5px;
@@ -106,6 +142,23 @@ div#dex {
     border-width: 5px;
 }
 
+#innerpicture{
+  max-width: 180px;
+  max-height: 180px;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.description {
+  float: right; 
+  margin-left: 1px;
+  margin-right: 10px;
+  margin-top: 20px;
+  width: 40%; 
+  font-size: 0.9vw;
+  
+}
+
 
 img {
     max-width:100%;
@@ -149,6 +202,9 @@ div.elementToPopup{
     border: 2px solid black;
 }
 
+
+
+
 div.elementToPopup:before{
     content: "";
   position: absolute;
@@ -179,6 +235,16 @@ div.elementToPopup:before{
     margin-bottom: 10px;
     font-weight: bold;
   }
+
+caption .pokemon-id {
+    position: absolute;
+    left: 0;
+    margin-left: 10px;
+}
+
+caption .pokemon-name {
+    text-align: center;
+}
   
   th,
   td {
@@ -201,21 +267,45 @@ div.elementToPopup:before{
     align-items: center;
   }
 
-  div.normal{background-color: #929fa7;}
-  div.fire{background-color: #f6974a;}
-  div.water{background-color: #2f8ece;}
-  div.electric{color: black;background-color: #efdb44;}
-  div.grass{background-color: #64b568;}
-  div.ice{color: black;background-color: #37c9c6;}
-  div.fighting{background-color: #d72624;}
-  div.poison{background-color: #bf52d1;}
-  div.ground{background-color: #c47242;}
-  div.flying{color: black;background-color: #79b0cf;}
-  div.psychic{background-color: #e1838b;}
-  div.bug{background-color: #8db765;}
-  div.rock{background-color: #bab58e;}
-  div.ghost{background-color: #6255ad;}
-  div.dragon{background-color: #2b67ab;}
-  div.dark{background-color: #505b65;}
-  div.steel{background-color: #568686;}
-  div.fairy{background-color: #db8fe4;}
+  :root {
+    --normal: #A8A77A;
+    --fire: #EE8130;
+    --water: #6390F0;
+    --electric: #F7D02C;
+    --grass: #7AC74C;
+    --ice: #96D9D6;
+    --fighting: #C22E28;
+    --poison: #A33EA1;
+    --ground: #E2BF65;
+    --flying: #A98FF3;
+    --psychic: #F95587;
+    --bug: #A6B91A;
+    --rock: #B6A136;
+    --ghost: #735797;
+    --dragon: #6F35FC;
+    --dark: #705746;
+    --steel: #B7B7CE;
+    --fairy: #D685AD;
+}
+
+div.type {
+    border: 1px solid black;
+    border-radius: 25px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    width: 120px;
+    color: white;
+}
+
+.normal { background-color: var(--normal); }
+.fire { background-color: var(--fire); }
+.water { background-color: var(--water); }
+.electric { background-color: var(--electric); color: black; }
+.grass { background-color: var(--grass); }
+.ice { background-color: var(--ice); color: black; }
+.fighting { background-color: var(--fighting); }
+.poison { background-color: var(--poison);}
+
+

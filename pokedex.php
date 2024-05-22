@@ -1,18 +1,28 @@
 <?php
 include "db.php";
+
+$searchQuery = "";
+if (isset($_POST['submit-search'])) {
+    $searchQuery = mysqli_real_escape_string($conn, $_POST['search']);
+}
+if (isset($_POST['reset-search'])) {
+    $searchQuery = "";
+}
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.dex.css">
-    <title>PokeDex</title>
+    <title>PokeDex - Gen 1</title>
     <link rel="icon" href="./Images/pikachuicon.png" />
 </head>
 <body style="background-image: url('./Images/paski-tlo.jpg')">
 
-<h1>Pokédex</h1>
+<h1>Pokédex - Gen 1</h1>
 
 <div id="menu">
     
@@ -27,100 +37,121 @@ include "db.php";
         </ul>  
 </div>
 
+<br>
+
+<nav id="search">
+    <form action="pokedex.php" method="POST">
+        <button id="resetbtn" type="submit" name="reset-search">Reset</button>
+        <input id="searchbar" type="text" name="search" placeholder="Search for a Pokémon">
+        <button id="searchbtn" type="submit" name="submit-search">Search</button>
+    </form>
+</nav>
+
 <div id="dex">
 
 <?php
-    $sql = "SELECT * FROM images ORDER BY ID ASC";
-    $res = mysqli_query($conn,$sql);
-    $pokeid = 0;
-    if(mysqli_num_rows($res)> 0){
-        while($images = mysqli_fetch_assoc($res)){ 
-            $pokeid = $pokeid + 1;
-         ?>
-        <div class="alb elementToHover" id="<?=$pokeid?>">
-            <img src="uploads/<?=$images['image']?>">
+
+$typeMap = [
+    0 => '',
+    1 => 'normal',
+    2 => 'fire',
+    3 => 'water',
+    4 => 'electric',
+    5 => 'grass',
+    6 => 'ice',
+    7 => 'fighting',
+    8 => 'poison',
+    9 => 'ground',
+    10 => 'flying',
+    11 => 'psychic',
+    12 => 'bug',
+    13 => 'rock',
+    14 => 'ghost',
+    15 => 'dragon',
+    16 => 'dark',
+    17 => 'steel',
+    18 => 'fairy'
+];
+
+if ($searchQuery) {
+    $sql = "SELECT images.image, pokemon.*, stats.*, 
+            primary_type.type AS PrimaryType, 
+            secondary_type.type AS SecondaryType
+            FROM images
+            INNER JOIN pokemon ON images.ID = pokemon.ID
+            INNER JOIN stats ON pokemon.ID = stats.ID
+            LEFT JOIN types AS primary_type ON pokemon.Primary_type = primary_type.ID
+            LEFT JOIN types AS secondary_type ON pokemon.Secondary_type = secondary_type.ID
+            WHERE pokemon.Pokemon_name LIKE '%$searchQuery%'
+            ORDER BY images.ID ASC";
+} else {
+    $sql = "SELECT images.image, pokemon.*, stats.*, primary_type.type AS PrimaryType, 
+            secondary_type.type AS SecondaryType
+            FROM images
+            INNER JOIN pokemon ON images.ID = pokemon.ID
+            INNER JOIN stats ON pokemon.ID = stats.ID
+            LEFT JOIN types AS primary_type ON pokemon.Primary_type = primary_type.ID
+            LEFT JOIN types AS secondary_type ON pokemon.Secondary_type = secondary_type.ID
+            ORDER BY images.ID ASC";
+}
+
+
+$res = mysqli_query($conn, $sql);
+if (mysqli_num_rows($res) > 0) {
+    while ($row = mysqli_fetch_assoc($res)) {
+        $primaryType = $typeMap[$row["Primary_type"]] ?? 'unknown';
+        $secondaryType = $typeMap[$row["Secondary_type"]] ?? null;
+        $backgroundStyle = $secondaryType
+            ? "background: linear-gradient(108deg, var(--primary-color) 50%, var(--secondary-color) 50%);
+             --primary-color: var(--{$primaryType}); --secondary-color: var(--{$secondaryType});"
+            : "background-color: var(--{$primaryType});";
+        ?>
+        <div class="alb elementToHover" id="<?=$row['ID']?>">
+            <img src="uploads/<?=$row['image']?>">
             <div class="elementToPopup">
-                    
-                    <?php
-                       $sql2 = "SELECT pokemon.*, 
-                       stats.*, 
-                       primary_type.type AS PrimaryType, 
-                       secondary_type.type AS SecondaryType
-                FROM pokemon
-                INNER JOIN stats ON pokemon.ID = stats.ID
-                LEFT JOIN types AS primary_type ON pokemon.Primary_type = primary_type.ID
-                LEFT JOIN types AS secondary_type ON pokemon.Secondary_type = secondary_type.ID
-                WHERE pokemon.ID = $pokeid;
-                ";
-                       $result = $conn->query($sql2);
-                       while($row = $result->fetch_assoc()){
-                        echo "<table>
-                        <caption>
-                            ".$row["ID"].". ".$row["Pokemon_name"]."
-                        </caption>
-                        <thead>
-                            <th>HP</th>
-                            <th>Attack</th>
-                            <th>Defense</th>
-                            <th>Special Attack</th>
-                            <th>Special Defense</th>
-                            <th>Speed</th>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>".$row["HP"]."</td>
-                                <td>".$row["ATK"]."</td>
-                                <td>".$row["DEF"]."</td>
-                                <td>".$row["SATK"]."</td>
-                                <td>".$row["SDEF"]."</td>
-                                <td>".$row["SPD"]."</td>
-                            </tr>
-                        </tbody>
-                        </table>
-                        <section><p>Type:</p>
-                        ";
-                        $types = [
-                            0 => '',
-                            1 => 'normal',
-                            2 => 'fire',
-                            3 => 'water',
-                            4 => 'electric',
-                            5 => 'grass',
-                            6 => 'ice',
-                            7 => 'fighting',
-                            8 => 'poison',
-                            9 => 'ground',
-                            10 => 'flying',
-                            11 => 'psychic',
-                            12 => 'bug',
-                            13 => 'rock',
-                            14 => 'ghost',
-                            15 => 'dragon',
-                            16 => 'dark',
-                            17 => 'steel',
-                            18 => 'fairy'
-                        ];
-                        
-                        $typeClass = $types[$row["Primary_type"]] ?? 'unknown';
-                        $typeClass2 = $types[$row["Secondary_type"]] ?? 'unknown';
-                        echo "<div class=\"$typeClass type\">" . ucfirst($typeClass) . "</div>";
-                        if($row["Secondary_type"] == 0){
-                            echo "";
-                        } else{
-                        echo "<div class=\"$typeClass2 type\">" . ucfirst($typeClass2) . "</div>";
-                        }
+                <table>
+                <caption>
+                    <span class="pokemon-id"><?=$row["ID"]?></span>
+                    <span class="pokemon-name"><?=$row["Pokemon_name"]?></span>
+                </caption>
+                    <thead style="background-color: white;">
+                        <th style="color: Red;">HP</th>
+                        <th style="color: Orange;">Attack</th>
+                        <th style="color: rgb(220, 202, 50);">Defense</th>
+                        <th style="color: rgb(0, 0, 150)">Special Attack</th>
+                        <th style="color: rgb(0, 150, 0);">Special Defense</th>
+                        <th style="color: hotpink;">Speed</th>
+                    </thead>
+                    <tbody style="background-color: white; color: black;">
+                        <tr>
+                            <td><?=$row["HP"]?></td>
+                            <td><?=$row["ATK"]?></td>
+                            <td><?=$row["DEF"]?></td>
+                            <td><?=$row["SATK"]?></td>
+                            <td><?=$row["SDEF"]?></td>
+                            <td><?=$row["SPD"]?></td>
+                        </tr>
+                    </tbody>
+                </table>
 
+                <img id="innerpicture" src="uploads/<?=$row['image']?>">
+                <div class="description"><?=$row["Description"]; ?></div>
 
-
-                        echo "</section>";
-                       }
-                    ?>
-                </div>
+                <section>
+                    <div class="type-weight-container">
+                        <p>Type:</p>
+                        <div class="type" style="<?=$backgroundStyle?>"><?= ucfirst($primaryType) . ($secondaryType ? ' / ' . ucfirst($secondaryType) : '') ?></div>
+                        <div class="weight-height">
+                            <p>Weight/Height</p>
+                            <p><?= $row["Avg_weight"] / 10 ?>kg/<?= number_format($row["Avg_height"] * 0.3048, 2) ?>m</p>
+                        </div>
+                    </div>
+                </section>
         </div>
-            <?php 
+    </div>
+<?php 
     }
 }?>
-    
 
    
 </div>
