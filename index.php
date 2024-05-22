@@ -26,14 +26,14 @@ session_start();
 <div id="menu">
     
         <ul>
-            <li class="buttons" id="mainpage"><a href="index">Main Page</a></li>
-|        
-            <li class="buttons" id="loginButton"><a href="login">Login</a></li> 
-|
-            <li class="buttons" id="registerButton"><a href="register">Register</a></li>
-|
-            <li class="buttons" id="dashboard"><a href="dashboardlogin">Dashboard</a></li>
-        </ul>  
+            <li class="buttons" id="mainpage"><a href="index.php">Main Page</a></li>
+            <li class="buttons" id="loginButton"><a href="login.php">Login</a></li>
+            <li class="buttons" id="registerButton"><a href="register.php">Register</a></li>
+            <li class="buttons" id="dashboard"><a href="dashboardlogin.php">Dashboard</a></li>
+            <li class="buttons" id="favorites"><a href="favoritepokemon.php">Favorites</a></li>        
+        </ul> 
+
+
 </div>
 
 
@@ -42,16 +42,13 @@ session_start();
             <li class="lowerbuttons"><a href="pokedex">Poké-Dex</a></li>  
 </div>
 
-<div id="block">
-    <h3 style="text-align: center;"> 
-            <li class="lowerbuttons"><a href="wouldwouldnt">Would / Wouldn't</a><li>
-</div>
+
 
      
 <div id="black-rectangle">
-                <ul id="tmV_ul">Team Valor</ul>
-                <ul id="tmI_ul">Team Instinct</ul>
-                <ul id="tmM_ul">Team Mystic</ul>
+                <ul id="tmV_ul"><a href="valor">Team Valor</a></ul>
+                <ul id="tmI_ul"><a href="instinct">Team Instinct</a></ul>
+                <ul id="tmM_ul"><a href="mystic">Team Mystic</a></ul>
 </div>
 
 <script type="text/javascript">

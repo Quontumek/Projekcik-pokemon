@@ -86,7 +86,6 @@ nav {
     margin-inline: auto;
     border: solid rgb(0, 0, 0);
     border-bottom: 3px solid black;
-    
 }
 
 ul{
@@ -103,7 +102,6 @@ ul{
     font-size: 1.1vw;
     text-decoration: none;
     margin-bottom: 24px;
-
 }
 
 li {
@@ -119,6 +117,7 @@ li {
     background-color: rgb(192, 45, 45);
     color: rgb(0, 0, 0);
 }
+
 
 .buttons :hover {
     border: solid black 2px;
@@ -138,12 +137,12 @@ a{
 }
 
 
+
 div {
     display: flex;
     background-color: rgb(139, 139, 139);
     justify-content: center;
     align-items: center;
-    
 }
 
 #block {
@@ -193,7 +192,7 @@ div {
 }
 
 #tmV_ul, #tmI_ul, #tmM_ul {
-    margin: 0 10px;
+    margin: 10px;
     font-size: x-large;
     padding: 10px;
     font-weight: bold;

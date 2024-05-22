@@ -20,11 +20,11 @@
 
 <div id="menu">
         <ul>
-        <li><a href="index">Main Page</a></li>     
-|        
-        <li><a href="login">Login</a></li> 
-|
-            <li>Advanced Search</li>
+            <li class="buttons" id="mainpage"><a href="index.php">Main Page</a></li>
+            <li class="buttons" id="loginButton"><a href="login.php">Login</a></li>
+            <li class="buttons" id="registerButton"><a href="register.php">Register</a></li>
+            <li class="buttons" id="dashboard"><a href="dashboardlogin.php">Dashboard</a></li>
+            <li class="buttons" id="favorites"><a href="favoritepokemon.php">Favorites</a></li>        
         </ul>  
 </div>
 

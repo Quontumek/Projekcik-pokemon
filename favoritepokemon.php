@@ -2,8 +2,14 @@
 include "db.php";
 session_start();
 
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    exit();
+}
 
+$userId = $_SESSION['user_id'];
 $searchQuery = "";
+
 if (isset($_POST['submit-search'])) {
     $searchQuery = mysqli_real_escape_string($conn, $_POST['search']);
 }
@@ -11,10 +17,7 @@ if (isset($_POST['reset-search'])) {
     $searchQuery = "";
 }
 
-$isLoggedIn = isset($_SESSION['user_id']);
-$userId = $isLoggedIn ? $_SESSION['user_id'] : null;
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -22,28 +25,27 @@ $userId = $isLoggedIn ? $_SESSION['user_id'] : null;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.dex.css">
-    <title>PokeDex - Gen 1</title>
+    <title>Favorite Pokémon</title>
     <link rel="icon" href="./Images/pikachuicon.png" />
 </head>
 <body style="background-image: url('./Images/paski-tlo.jpg')">
 
-<h1>Pokédex - Gen 1</h1>
+<h1>Favorite Pokémon</h1>
 
 <div id="menu">
-    
-        <ul>
-            <li class="buttons" id="mainpage"><a href="index.php">Main Page</a></li>
-            <li class="buttons" id="loginButton"><a href="login.php">Login</a></li>
-            <li class="buttons" id="registerButton"><a href="register.php">Register</a></li>
-            <li class="buttons" id="dashboard"><a href="dashboardlogin.php">Dashboard</a></li>
-            <li class="buttons" id="favorites"><a href="favoritepokemon.php">Favorites</a></li>        
-        </ul> 
+    <ul>
+        <li class="buttons" id="mainpage"><a href="index.php">Main Page</a></li>
+        <li class="buttons" id="loginButton"><a href="login.php">Login</a></li>
+        <li class="buttons" id="registerButton"><a href="register.php">Register</a></li>
+        <li class="buttons" id="dashboard"><a href="dashboardlogin.php">Dashboard</a></li>
+        <li class="buttons" id="favorites"><a href="favoritepokemon.php">Favorites</a></li>
+    </ul>
 </div>
 
 <br>
 
 <nav id="search">
-    <form action="pokedex.php" method="POST">
+    <form action="favoritepokemon.php" method="POST">
         <button id="resetbtn" type="submit" name="reset-search">Reset</button>
         <input id="searchbar" type="text" name="search" placeholder="Search for a Pokémon">
         <button id="searchbtn" type="submit" name="submit-search">Search</button>
@@ -51,55 +53,27 @@ $userId = $isLoggedIn ? $_SESSION['user_id'] : null;
 </nav>
 
 <div id="dex">
-
 <?php
 
-
-
 $typeMap = [
-    0 => '',
-    1 => 'normal',
-    2 => 'fire',
-    3 => 'water',
-    4 => 'electric',
-    5 => 'grass',
-    6 => 'ice',
-    7 => 'fighting',
-    8 => 'poison',
-    9 => 'ground',
-    10 => 'flying',
-    11 => 'psychic',
-    12 => 'bug',
-    13 => 'rock',
-    14 => 'ghost',
-    15 => 'dragon',
-    16 => 'dark',
-    17 => 'steel',
-    18 => 'fairy'
+    0 => '', 1 => 'normal', 2 => 'fire', 3 => 'water', 4 => 'electric',
+    5 => 'grass', 6 => 'ice', 7 => 'fighting', 8 => 'poison', 9 => 'ground',
+    10 => 'flying', 11 => 'psychic', 12 => 'bug', 13 => 'rock', 14 => 'ghost',
+    15 => 'dragon', 16 => 'dark', 17 => 'steel', 18 => 'fairy'
 ];
 
-if ($searchQuery) {
-    $sql = "SELECT images.image, pokemon.*, stats.*, 
-            primary_type.type AS PrimaryType, 
-            secondary_type.type AS SecondaryType
-            FROM images
-            INNER JOIN pokemon ON images.ID = pokemon.ID
-            INNER JOIN stats ON pokemon.ID = stats.ID
-            LEFT JOIN types AS primary_type ON pokemon.Primary_type = primary_type.ID
-            LEFT JOIN types AS secondary_type ON pokemon.Secondary_type = secondary_type.ID
-            WHERE pokemon.Pokemon_name LIKE '%$searchQuery%'
-            ORDER BY images.ID ASC";
-} else {
-    $sql = "SELECT images.image, pokemon.*, stats.*, primary_type.type AS PrimaryType, 
-            secondary_type.type AS SecondaryType
-            FROM images
-            INNER JOIN pokemon ON images.ID = pokemon.ID
-            INNER JOIN stats ON pokemon.ID = stats.ID
-            LEFT JOIN types AS primary_type ON pokemon.Primary_type = primary_type.ID
-            LEFT JOIN types AS secondary_type ON pokemon.Secondary_type = secondary_type.ID
-            ORDER BY images.ID ASC";
-}
+$searchCondition = $searchQuery ? "AND pokemon.Pokemon_name LIKE '%$searchQuery%'" : "";
 
+$sql = "SELECT images.image, pokemon.*, stats.*, 
+        primary_type.type AS PrimaryType, secondary_type.type AS SecondaryType
+        FROM favorites
+        INNER JOIN pokemon ON favorites.pokemon_id = pokemon.ID
+        INNER JOIN images ON pokemon.ID = images.ID
+        INNER JOIN stats ON pokemon.ID = stats.ID
+        LEFT JOIN types AS primary_type ON pokemon.Primary_type = primary_type.ID
+        LEFT JOIN types AS secondary_type ON pokemon.Secondary_type = secondary_type.ID
+        WHERE favorites.user_id = $userId $searchCondition
+        ORDER BY images.ID ASC";
 
 $res = mysqli_query($conn, $sql);
 if (mysqli_num_rows($res) > 0) {
@@ -111,25 +85,17 @@ if (mysqli_num_rows($res) > 0) {
              --primary-color: var(--{$primaryType}); --secondary-color: var(--{$secondaryType});"
             : "background-color: var(--{$primaryType});";
 
-            $isFavorite = false;
-            if ($isLoggedIn) {
-                $pokemonId = $row['ID'];
-                $favoriteQuery = "SELECT * FROM favorites WHERE user_id = $userId AND pokemon_id = $pokemonId";
-                $favoriteResult = mysqli_query($conn, $favoriteQuery);
-                if (mysqli_num_rows($favoriteResult) > 0) {
-                    $isFavorite = true;
-                }
-            }
+        $isFavorite = true; // Always true as we are fetching only favorites
         ?>
         <div class="alb elementToHover" id="<?=$row['ID']?>">
             <img src="uploads/<?=$row['image']?>">
             <div class="elementToPopup">
                 <table>
-                <caption>
-                    <span class="pokemon-id"><?=$row["ID"]?></span>
-                    <span class="pokemon-name"><?=$row["Pokemon_name"]?></span>
-                    <span id="star" class="favourite" data-id="<?=$row['ID']?>"onclick="toggleFavorite(<?=$row['ID']?>)"><?= $isFavorite ? '★' : '☆' ?>
-                </caption>
+                    <caption>
+                        <span class="pokemon-id"><?=$row["ID"]?></span>
+                        <span class="pokemon-name"><?=$row["Pokemon_name"]?></span>
+                        <span id="star" class="favourite selected" data-id="<?=$row['ID']?>" onclick="toggleFavorite(<?=$row['ID']?>)"><?= $isFavorite ? '★' : '☆' ?></span>
+                    </caption>
                     <thead style="background-color: white;">
                         <th style="color: Red;">HP</th>
                         <th style="color: Orange;">Attack</th>
@@ -149,10 +115,8 @@ if (mysqli_num_rows($res) > 0) {
                         </tr>
                     </tbody>
                 </table>
-
                 <img id="innerpicture" src="uploads/<?=$row['image']?>">
                 <div class="description"><?=$row["Description"]; ?></div>
-
                 <section>
                     <div class="type-weight-container">
                         <p>Type:</p>
@@ -163,20 +127,18 @@ if (mysqli_num_rows($res) > 0) {
                         </div>
                     </div>
                 </section>
+            </div>
         </div>
-    </div>
 <?php 
     }
-}?>
+} else {
+    echo "<p>No favorite Pokémon found.</p>";
+}
+?>
 
-   
 </div>
 
-
-<script
-        src="./js/popup.js">
-</script>
-
+<script src="./js/popup.js"></script>
 <script type="text/javascript">
     document.getElementById("dashboard").onclick = function () {
         if(!"<?php echo isset($_SESSION['mail']); ?>") {
@@ -217,11 +179,7 @@ if (mysqli_num_rows($res) > 0) {
     };
     xhr.send(JSON.stringify({ pokemonId: pokemonId }));
 }
-
 </script>
 
 </body>
 </html>
-
-
-

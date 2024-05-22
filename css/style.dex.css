@@ -27,6 +27,7 @@ nav {
   width: 47%;
   height: 40px;
   margin-top: 2px;
+  cursor: pointer;
 }
 
 #searchbtn{
@@ -34,12 +35,14 @@ nav {
   height: 100%;
   float: right;
   margin-top: 15px;
+  cursor: pointer;
 }
 #resetbtn {
   width: 26%;
   height: 100%;
   float: left;
   margin-top: 15px;
+  cursor: pointer;
 }
 
 
@@ -242,6 +245,18 @@ caption .pokemon-id {
     margin-left: 10px;
 }
 
+caption #star {
+    cursor: pointer;
+    font-size: 1.5em;
+    color: yellow;
+    transition: color 0.3s;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-right: 10px;
+  }
+  
+
 caption .pokemon-name {
     text-align: center;
 }
@@ -311,5 +326,7 @@ div.type {
 .ice { background-color: var(--ice); color: black; }
 .fighting { background-color: var(--fighting); }
 .poison { background-color: var(--poison);}
+
+
 
 

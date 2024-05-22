@@ -28,7 +28,9 @@ header {
 h1 {
     position: relative;
     z-index: 1;
+    color: black;
 }
+
 nav {
     background-color: rgb(255, 255, 255);
     border-bottom: 3px solid black;
@@ -39,22 +41,23 @@ nav {
 nav ul {
     list-style-type: none;
     padding: 0;
+    display: flex;
+    justify-content: center;
+    margin: 0;
 }
 
 nav ul li {
-    flex-direction: left;
     margin-right: 20px;
 }
 
 nav ul li a {
     text-decoration: none;
     color: black;
-    font-size: 18px;
+    font-size: 25px;
 }
 
 main {
     display: flex;
-    flex-direction: left;
     justify-content: space-around;
     padding: 20px;
 }
@@ -86,8 +89,24 @@ section ul {
     font-size: 18px;
     border-radius: 5px;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    margin-left: 40px;
 }
 
 #logout:hover {
     background-color: rgb(139, 0, 0);
+}
+
+.buttons {
+    text-decoration: none;
+}
+
+li {
+    text-decoration: none;
+}
+
+.no-underline {
+    text-decoration: none;
+    color: black;
 }

@@ -1,13 +1,11 @@
 <?php
 require "db.php";
-
 session_start();
 
 if (!isset($_SESSION["mail"])) {
     header("Location: login");
     exit(); 
 }
-
 
 $email = $_SESSION["mail"];
 $sql = "SELECT NAME, EMAIL FROM login WHERE EMAIL = ?";
@@ -26,10 +24,7 @@ if ($result->num_rows > 0) {
 }
 
 $stmt->close();
-
-
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -42,45 +37,45 @@ $stmt->close();
 </head>
 <body>
     <header>
-        <h1>Your Dashboard <button type="submit" id="logout">Logout</button><img src="./Images/pokemonbanner.jpg" alt="Banner Pokemon"></h1>
-        <nav>
-            <ul>
-                <li><a href="index">Home</a></li>
-                <li><a href="wouldwouldnt">The Game</a></li>
-                <li><a href="pokedex">Dex</a></li>
-                
-            </ul>
-        </nav>
+        <h1>Your Dashboard</h1>
     </header>
-
+    
+    <nav>
+        <ul>
+            <li class="buttons" id="mainpage"><a href="index.php">Main Page</a></li>
+            <li class="buttons" id="loginButton"><a href="login.php">Login</a></li>
+            <li class="buttons" id="registerButton"><a href="register.php">Register</a></li>
+            <li class="buttons" id="dashboard"><a href="dashboardlogin.php">Dashboard</a></li>
+            <li class="buttons" id="favorites"><a href="favoritepokemon.php">Favorites</a></li>
+            <li class="buttons" id="wouldwouldnt"><a href="wouldwouldnt">The Game</a></li>
+            <li class="buttons" id="pokedex"><a href="pokedex">Dex</a></li>
+        </ul>
+    </nav>
+    
     <main>
         <section>
-            <h2>Ulubione</h2>
+            <h2>Favorite Pokemon</h2>
             <ul>
-                <li>Pokemon1</li>
-                <li>pokemon2</li>
-                <li>etc</li>
+                <li class="buttons" id="favorites"><a href="favoritepokemon.php" class="no-underline">Favorites</a></li>
             </ul>
         </section>
 
         <section>
-            <h2>Dane Użytkownika</h2>
+            <h2>User Data</h2>
             <ul>
                 <li>Name: <?php echo("$name")?></li>
                 <li>Email: <?php echo("$email")?></li>
-                <li>Notification 3</li>
+                <li>Certified Geek</li>
             </ul>
         </section>
     </main>
+    
+    <button type="submit" id="logout">Logout</button>
 </body>
 </html>
-
 
 <script type="text/javascript">
     document.getElementById("logout").onclick = function () {
         location.href = "logout";
     };
-
-
-
 </script>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 22, 2024 at 02:51 PM
+-- Generation Time: May 23, 2024 at 12:07 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -20,6 +20,28 @@ SET time_zone = "+00:00";
 --
 -- Database: `pokedatabase`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `favorites`
+--
+
+CREATE TABLE `favorites` (
+  `user_id` int(11) NOT NULL,
+  `pokemon_id` smallint(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `favorites`
+--
+
+INSERT INTO `favorites` (`user_id`, `pokemon_id`) VALUES
+(17, 2),
+(17, 8),
+(17, 37),
+(17, 47),
+(17, 49);
 
 -- --------------------------------------------------------
 
@@ -207,7 +229,9 @@ CREATE TABLE `login` (
 --
 
 INSERT INTO `login` (`ID`, `NAME`, `PASSWORD`, `EMAIL`) VALUES
-(14, 'Phillip', '$2y$10$jz.9VvmsyyqxX4kNeC6A1es6AbORTR7WXe6/JFhSujjM5MTdGCCc.', 'phillip.christensen@uczen.zsk.poznan.pl');
+(14, 'Phillip', '$2y$10$jz.9VvmsyyqxX4kNeC6A1es6AbORTR7WXe6/JFhSujjM5MTdGCCc.', 'phillip.christensen@uczen.zsk.poznan.pl'),
+(17, 'swords', '$2y$10$sK27oo6sE6YK3kxuvEpIMuAVYdHiIZa8KXUM67ploP0pHauOzALy2', 'phillip@christensen2.pl'),
+(18, 'llanovar', '$2y$10$9KQhckcdIVS3Qkqs6yMwTOmfAGKM8ndD9zcO9LyhtycaX1K8F0rQO', 'phillip@christensen.pl');
 
 -- --------------------------------------------------------
 
@@ -593,177 +617,15 @@ INSERT INTO `types` (`ID`, `Type`) VALUES
 (17, 'Steel'),
 (3, 'Water');
 
--- --------------------------------------------------------
-
---
--- Table structure for table `wwt`
---
-
-CREATE TABLE `wwt` (
-  `ID` smallint(6) NOT NULL,
-  `likes` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `wwt`
---
-
-INSERT INTO `wwt` (`ID`, `likes`) VALUES
-(1, 0),
-(2, 0),
-(3, 0),
-(4, 0),
-(5, 0),
-(6, 0),
-(7, 0),
-(8, 0),
-(9, 0),
-(10, 0),
-(11, 0),
-(12, 0),
-(13, 0),
-(14, 0),
-(15, 0),
-(16, 0),
-(17, 0),
-(18, 0),
-(19, 0),
-(20, 0),
-(21, 0),
-(22, 0),
-(23, 0),
-(24, 0),
-(25, 0),
-(26, 0),
-(27, 0),
-(28, 0),
-(29, 0),
-(30, 0),
-(31, 0),
-(32, 0),
-(33, 0),
-(34, 0),
-(35, 0),
-(36, 0),
-(37, 0),
-(38, 0),
-(39, 0),
-(40, 0),
-(41, 0),
-(42, 0),
-(43, 0),
-(44, 0),
-(45, 0),
-(46, 0),
-(47, 0),
-(48, 0),
-(49, 0),
-(50, 0),
-(51, 0),
-(52, 0),
-(53, 0),
-(54, 0),
-(55, 0),
-(56, 0),
-(57, 0),
-(58, 0),
-(59, 0),
-(60, 0),
-(61, 0),
-(62, 0),
-(63, 0),
-(64, 0),
-(65, 0),
-(66, 0),
-(67, 0),
-(68, 0),
-(69, 0),
-(70, 0),
-(71, 0),
-(72, 0),
-(73, 0),
-(74, 0),
-(75, 0),
-(76, 0),
-(77, 0),
-(78, 0),
-(79, 0),
-(80, 0),
-(81, 0),
-(82, 0),
-(83, 0),
-(84, 0),
-(85, 0),
-(86, 0),
-(87, 0),
-(88, 0),
-(89, 0),
-(90, 0),
-(91, 0),
-(92, 0),
-(93, 0),
-(94, 0),
-(95, 0),
-(96, 0),
-(97, 0),
-(98, 0),
-(99, 0),
-(100, 0),
-(101, 0),
-(102, 0),
-(103, 0),
-(104, 0),
-(105, 0),
-(106, 0),
-(107, 0),
-(108, 0),
-(109, 0),
-(110, 0),
-(111, 0),
-(112, 0),
-(113, 0),
-(114, 0),
-(115, 0),
-(116, 0),
-(117, 0),
-(118, 0),
-(119, 0),
-(120, 0),
-(121, 0),
-(122, 0),
-(123, 0),
-(124, 0),
-(125, 0),
-(126, 0),
-(127, 0),
-(128, 0),
-(129, 0),
-(130, 0),
-(131, 0),
-(132, 0),
-(133, 0),
-(134, 0),
-(135, 0),
-(136, 0),
-(137, 0),
-(138, 0),
-(139, 0),
-(140, 0),
-(141, 0),
-(142, 0),
-(143, 0),
-(144, 0),
-(145, 0),
-(146, 0),
-(147, 0),
-(148, 0),
-(149, 0),
-(150, 0),
-(151, 0);
-
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `favorites`
+--
+ALTER TABLE `favorites`
+  ADD PRIMARY KEY (`user_id`,`pokemon_id`);
 
 --
 -- Indexes for table `images`
@@ -799,12 +661,6 @@ ALTER TABLE `types`
   ADD KEY `Type` (`Type`);
 
 --
--- Indexes for table `wwt`
---
-ALTER TABLE `wwt`
-  ADD PRIMARY KEY (`ID`);
-
---
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -818,13 +674,7 @@ ALTER TABLE `images`
 -- AUTO_INCREMENT for table `login`
 --
 ALTER TABLE `login`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
-
---
--- AUTO_INCREMENT for table `wwt`
---
-ALTER TABLE `wwt`
-  MODIFY `ID` smallint(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=152;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- Constraints for dumped tables
