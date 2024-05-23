@@ -3,6 +3,10 @@ include "db.php";
 session_start();
 
 
+//=======================================================================================================
+
+// to funkcje do searcha
+
 $searchQuery = "";
 if (isset($_POST['submit-search'])) {
     $searchQuery = mysqli_real_escape_string($conn, $_POST['search']);
@@ -10,6 +14,38 @@ if (isset($_POST['submit-search'])) {
 if (isset($_POST['reset-search'])) {
     $searchQuery = "";
 }
+
+//=======================================================================================================
+
+// to funkcje do sortowania
+
+$validSortColumns = ['ID', 'HP', 'ATK', 'DEF', 'SATK', 'SDEF', 'SPD', 'Avg_weight', 'Avg_height'];
+$sortColumn = "ID";
+$sortOrder = "ASC";
+if (isset($_POST['sort-submit'])) {
+    $sortColumnInput = mysqli_real_escape_string($conn, $_POST['sort-column']);
+    $sortOrderInput = mysqli_real_escape_string($conn, $_POST['sort-order']);
+    if (in_array($sortColumnInput, $validSortColumns)) {
+        $sortColumn = $sortColumnInput;
+    }
+    if (in_array($sortOrderInput, ['ASC', 'DESC'])) {
+        $sortOrder = $sortOrderInput;
+    }
+}
+
+//=======================================================================================================
+
+// to funkcje do filtrowania
+$validTypes = ['all', 'normal', 'grass', 'fire', 'water', 'electric', 'fighting', 'poison', 'ground', 'flying', 'psychic', 'bug', 'rock', 'ghost', 'ice', 'dragon', 'dark', 'steel', 'fairy'];
+$filterType = "all";
+if (isset($_POST['filter-submit'])) {
+    $filterTypeInput = mysqli_real_escape_string($conn, $_POST['sort-type']);
+    if (in_array($filterTypeInput, $validTypes)) {
+        $filterType = $filterTypeInput;
+    }
+}
+
+//=======================================================================================================
 
 $isLoggedIn = isset($_SESSION['user_id']);
 $userId = $isLoggedIn ? $_SESSION['user_id'] : null;
@@ -49,12 +85,52 @@ $userId = $isLoggedIn ? $_SESSION['user_id'] : null;
         <button id="searchbtn" type="submit" name="submit-search">Search</button>
     </form>
 </nav>
+<nav id="sort">
+    <form action="pokedex.php" method="POST">
+        <label>Sort by:</label>
+        <select name="sort-column">
+            <option value="HP">HP</option>
+            <option value="ATK">Attack</option>
+            <option value="DEF">Defense</option>
+            <option value="SATK">Special Attack</option>
+            <option value="SDEF">Special Defense</option>
+            <option value="SPD">Speed</option>
+            <option value="Avg_weight">Weight</option>
+            <option value="Avg_height">Height</option>
+        </select>
+        <select name="sort-order">
+            <option value="ASC">Ascending</option>
+            <option value="DESC">Descending</option>
+        </select>
+        <select name="sort-type">
+            <option value="all">All</option>
+            <option value="normal">Normal</option>
+            <option value="grass">Grass</option>
+            <option value="fire">Fire</option>
+            <option value="water">Water</option>
+            <option value="electric">Electric</option>
+            <option value="fighting">Fighting</option>
+            <option value="poison">Poison</option>
+            <option value="ground">Ground</option>
+            <option value="flying">Flying</option>
+            <option value="psychic">Psychic</option>
+            <option value="bug">Bug</option>
+            <option value="rock">Rock</option>
+            <option value="ghost">Ghost</option>
+            <option value="ice">Ice</option>
+            <option value="dragon">Dragon</option>
+            <option value="dark">Dark</option>
+            <option value="steel">Steel</option>
+            <option value="fairy">Fairy</option>
+        </select>
+        <button type="submit" name="filter-submit">Filter</button>
+    </form>
+</nav>
 
 <div id="dex">
 
 <?php
-
-
+    
 
 $typeMap = [
     0 => '',
@@ -100,6 +176,31 @@ if ($searchQuery) {
             ORDER BY images.ID ASC";
 }
 
+
+$sql = "SELECT images.image, pokemon.*, stats.*, 
+        primary_type.type AS PrimaryType, 
+        secondary_type.type AS SecondaryType
+        FROM images
+        INNER JOIN pokemon ON images.ID = pokemon.ID
+        INNER JOIN stats ON pokemon.ID = stats.ID
+        LEFT JOIN types AS primary_type ON pokemon.Primary_type = primary_type.ID
+        LEFT JOIN types AS secondary_type ON pokemon.Secondary_type = secondary_type.ID";
+
+    if ($searchQuery) {
+        $sql .= " WHERE pokemon.Pokemon_name LIKE '%$searchQuery%'";
+    }
+
+    if ($filterType !== 'all') {
+        if ($searchQuery) {
+            $sql .= " AND primary_type.type = '$filterType'";
+        } else {
+            $sql .= " WHERE primary_type.type = '$filterType'";
+        }
+    }
+
+    $sql .= " ORDER BY pokemon.ID $sortOrder";
+
+echo "SQL Query: $sql<br>";
 
 $res = mysqli_query($conn, $sql);
 if (mysqli_num_rows($res) > 0) {
@@ -222,6 +323,5 @@ if (mysqli_num_rows($res) > 0) {
 
 </body>
 </html>
-
 
 

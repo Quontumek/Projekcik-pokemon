@@ -37,7 +37,7 @@ $stmt->close();
 </head>
 <body>
     <header>
-        <h1>Your Dashboard</h1>
+        <h1>Le Dash</h1>
     </header>
     
     <nav>
@@ -45,10 +45,9 @@ $stmt->close();
             <li class="buttons" id="mainpage"><a href="index.php">Main Page</a></li>
             <li class="buttons" id="loginButton"><a href="login.php">Login</a></li>
             <li class="buttons" id="registerButton"><a href="register.php">Register</a></li>
-            <li class="buttons" id="dashboard"><a href="dashboardlogin.php">Dashboard</a></li>
             <li class="buttons" id="favorites"><a href="favoritepokemon.php">Favorites</a></li>
             <li class="buttons" id="wouldwouldnt"><a href="wouldwouldnt">The Game</a></li>
-            <li class="buttons" id="pokedex"><a href="pokedex">Dex</a></li>
+            <li class="buttons" id="pokedex"><a href="pokedex">Pokédex</a></li>
         </ul>
     </nav>
     

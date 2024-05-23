@@ -38,7 +38,8 @@ if (isset($_POST['reset-search'])) {
         <li class="buttons" id="loginButton"><a href="login.php">Login</a></li>
         <li class="buttons" id="registerButton"><a href="register.php">Register</a></li>
         <li class="buttons" id="dashboard"><a href="dashboardlogin.php">Dashboard</a></li>
-        <li class="buttons" id="favorites"><a href="favoritepokemon.php">Favorites</a></li>
+        <li class="buttons" id="pokedex"><a href="pokedex.php">Pokédex</a></li>
+
     </ul>
 </div>
 
