@@ -86,7 +86,7 @@ if (mysqli_num_rows($res) > 0) {
              --primary-color: var(--{$primaryType}); --secondary-color: var(--{$secondaryType});"
             : "background-color: var(--{$primaryType});";
 
-        $isFavorite = true; // Always true as we are fetching only favorites
+        $isFavorite = true;
         ?>
         <div class="alb elementToHover" id="<?=$row['ID']?>">
             <img src="uploads/<?=$row['image']?>">
