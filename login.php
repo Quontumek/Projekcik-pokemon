@@ -26,7 +26,7 @@ session_start();
 
 <div id="menul">
         <ul>
-            <li class="buttons" id="mainpage"><a href="index.php">Main Page</a></li>
+            <li class="buttons" id="mainpage"><a href="mainpage.php">Main Page</a></li>
             <li class="buttons" id="loginButton"><a href="login.php">Login</a></li>
             <li class="buttons" id="registerButton"><a href="register.php">Register</a></li>
             <li class="buttons" id="dashboard"><a href="dashboardlogin.php">Dashboard</a></li>

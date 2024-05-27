@@ -19,7 +19,7 @@
 <div id="menu">
     
         <ul>
-            <li class="buttons" id="mainpage"><a href="index">Main Page</a></li>
+            <li class="buttons" id="mainpage"><a href="mainpage">Main Page</a></li>
 |        
             <li class="buttons" id="loginButton"><a href="login">Login</a></li> 
 |
@@ -29,7 +29,9 @@
         </ul>  
 </div>
 <div id="desc">
-    <p>Not much is known about how Team Valor was founded but it's known that Candela is their leader. Valor is researching Pokémon power and strength. Team Valor trainers believes that Pokémon are stronger and more warmhearted than humans because they train to enhance Pokémon's power in search for true strength. Team Valor is represented by the legendary bird Moltres, because it's the teams emblem and Candela has Moltres in her team of pokémon. Team Valor is often shown to specialize in Fire-type Pokémon, as evident by their leader Candela who is a fire-type trainer. Red is Valor's signature color, with them even being called the Red Team. Team Valor values true power heavily and relies on strength in battle. They want to discover Pokémon's true, natural power.</p>
+    <p>Team Valor is led by Candela. She is known for her passion and dedication to training Pokémon to be the best they can be.</p><br>
+    <p>Valor focuses on the strength and power of Pokémon. Candela believes in training hard to make Pokémon strong and emphasizes the importance of dedication and perseverance in becoming the best.</p><br>
+    <p>The team's mascot is the Legendary Pokémon Moltres, a Fire/Flying type Pokémon. Moltres represents the fiery determination and passion of Team Valor.</p>
 </div>
 <div class="leader">
     <figure>
