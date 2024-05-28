@@ -1,13 +1,23 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 body {
-    background-color: rgb(255, 255, 255);
-    padding: 350px;
-    margin: 0px;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    height: 100vh;
+    margin: 0;
+    position: relative;
+    font-family: "Press Start 2P", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.center-content {
+    text-align: center;
 }
 
 nav {
+    margin-top: 20px;
     display: flex;
     width: 170px;
     height: 20px;
@@ -17,4 +27,15 @@ nav {
     border-bottom: 3px solid black;
     justify-content: center;
     padding: 20px;
+}
+
+.bottom-right {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 20px;
+}
+a{
+    text-decoration: none;
+    color: black;
 }
