@@ -31,4 +31,3 @@ if (mysqli_num_rows($result) == 1) {
     header("Location: wrong_pass");
     exit();
 }
-

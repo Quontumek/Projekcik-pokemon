@@ -8,7 +8,7 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.index.css?v=1">
+    <link rel="stylesheet" href="./css/style.mainpage.css?v=1">
     <title>Pokémon projekt</title>
     <link rel="icon" href="./Images/pikachuicon.png" />
 </head>
@@ -21,28 +21,29 @@ session_start();
 <img src="./Images/instinct.png" alt="Team Instinct">
 </div>
 
-<h1>Pokémon Wiki</h1>
+<h1>Pokédex - ZSK</h1>
 
-<div id="menu">
-    
+<div id="menu">   
         <ul>
-            <li class="buttons" id="mainpage"><a href="mainpage.php">Main Page</a></li>
-            <li class="buttons" id="loginButton"><a href="login.php">Login</a></li>
-            <li class="buttons" id="registerButton"><a href="register.php">Register</a></li>
-            <li class="buttons" id="dashboard"><a href="dashboardlogin.php">Dashboard</a></li>
-            <li class="buttons" id="favorites"><a href="favoritepokemon.php">Favorites</a></li>        
+            <li class="buttons" id="mainpage"><a href="mainpage">Main Page</a></li>
+            <li class="buttonsl" id="loginButton"><a href="login">Login</a></li>
+            <li class="buttonsr" id="registerButton"><a href="register">Register</a></li>
+            <li class="buttonsl" id="dashboard"><a href="dashboardlogin">Dashboard</a></li>
+            <li class="buttonsp" id="pokedex"><a href="pokedex">Pokédex</a></li>
+            <li class="buttonsp" id="favorites"><a href="favoritepokemon">Favorites</a></li> 
         </ul> 
-
-
 </div>
 
 
 <div id="block">
     <h3 style="text-align: center;">
-            <li class="lowerbuttons"><a href="pokedex">Poké-Dex</a></li>  
+            <li class="lowerbuttons"><a>Witaj na stronie poświęconej Pokémonom.</a>
+            <br>
+            <a>Stronka ta, to Pokédex Gen I / Informator o teamach z gry Pokémon GO</a></li>  
+    </h3>
 </div>
 
-
+<a id="podpis">Strona stworzona w ramach projektu PHP w klasie IV przez Phillipa Christensen i Aleksandra Jaknowskiego</a>
 
      
 <div id="black-rectangle">

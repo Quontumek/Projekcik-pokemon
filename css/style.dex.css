@@ -3,46 +3,64 @@
 
 
 body {
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 100%;
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+    background-image: url("./Images/paski-tlo.jpg");
+    background-size: stretch;
+
 }
 
 nav {
   display: flex;
+  align-items: center;
+  justify-content: center;
   flex-wrap: wrap;
   width: 50%;
   height: 50px;
   background-color: rgb(139, 139, 139);
   border: 2px solid rgb(0, 0, 0);
   border-radius: 6px;
-  margin: auto;
   margin-top: 20px;
   align-items: left;
   display: inline
 }
 
+
+#sort {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
 #searchbar {
-  width: 47%;
+  width: 50%;
   height: 40px;
   margin-top: 2px;
   cursor: pointer;
 }
-
 #searchbtn{
-  width: 26%;
+  width: 20%;
   height: 100%;
   float: right;
   margin-top: 15px;
   cursor: pointer;
 }
 #resetbtn {
-  width: 26%;
+  width: 20%;
   height: 100%;
   float: left;
   margin-top: 15px;
   cursor: pointer;
+}
+
+#filterbtn{
+  justify-self: flex-end;
 }
 
 
@@ -57,7 +75,7 @@ h1 {
     font-size: 4.5vw;
     font-family: 'Ojuju', sans-serif;
     -webkit-text-stroke: 2px rgb(0, 0, 0);
-    background-color: royalblue;
+    background-color: var(--grass);
     margin: auto;
     width: 55.5%;
     align-items: center;
@@ -82,36 +100,93 @@ h1 {
 
 
 ul{
-    display:flex;
-    gap: 20px;
-    padding: 0px;
-    justify-content: center;
-    height: 60px;
-    border:10px solid rgb(20, 57, 100);
-    width: 80vh;
-    align-items: center;
-    margin-inline: auto;
-    background-color: white;
-    font-size: 0.9vw;
-    text-decoration: none;
+  display:flex;
+  gap: 40px;
+  padding: 0;
+  justify-content: center;
+  height: 30%;
+  width: 700px;
+  align-items: center;
+  margin-inline: auto;
+  background-color: white;
+  font-size: 1.1vw;
+  text-decoration: none;
 }
 
 
+/*
+==================================================================================================================================================
+GUZIKI NA KOLORY W MENU 
+*/
 
 .buttons .visited {
-    border: solid black 2px;
-    padding: 2.5px;
-    background-color: royalblue;
-    color: rgb(0, 0, 0);
+  border: solid black 2px;
+  padding: 2.5px;
+  background-color: rgb(192, 45, 45);
+  color: rgb(0, 0, 0);
 }
 
+
 .buttons :hover {
-    border: solid black 2px;
-    padding: 2.5px;
-    background-color: royalblue;
-    border-radius: 2.5px;
-    color: white;
+  border: solid black 2px;
+  padding: 2.5px;
+  background-color: rgb(192, 45, 45);
+  border-radius: 2.5px;
+  color: white;
 }
+.buttonsl .visited {
+  border: solid black 2px;
+  padding: 2.5px;
+  background-color: royalblue;
+  color: rgb(0, 0, 0);
+}
+
+.buttonsl :hover {
+  border: solid black 2px;
+  padding: 2.5px;
+  background-color: royalblue;
+  border-radius: 2.5px;
+  color: white;
+}
+
+
+.buttonsr .visited {
+  border: solid black 2px;
+  padding: 2.5px;
+  background-color: black;
+  color: rgb(0, 0, 0);
+}
+
+.buttonsr :hover {
+  border: solid black 2px;
+  padding: 2.5px;
+  background-color: black;
+  border-radius: 2.5px;
+  color: white;
+}
+
+.buttonsp .visited {
+  border: solid black 2px;
+  padding: 2.5px;
+  background-color: var(--grass);
+  color: rgb(0, 0, 0);
+}
+
+.buttonsp :hover {
+  border: solid black 2px;
+  padding: 2.5px;
+  background-color: var(--grass);
+  border-radius: 2.5px;
+  color: black;
+}
+
+:root {
+  --grass: #7AC74C;
+}
+/*
+GUZIKI NA KOLORY W MENU 
+==================================================================================================================================================
+*/
 
 
 
@@ -143,6 +218,7 @@ div#dex {
     border-radius: 50px;
     border-style: inset;
     border-width: 5px;
+    margin-bottom: 200px;
 }
 
 #innerpicture{
@@ -196,10 +272,10 @@ div.elementToPopup{
     position: absolute;
     top: -60px;
     z-index: 1;
-    background: royalblue;
+    background: lightblue;
     padding: 8px;
     font-size: 1rem;
-    color: #fff;
+    color: black;
     border-radius: 2px;
     animation: fadeIn 0.6s;
     border: 2px solid black;
@@ -248,12 +324,13 @@ caption .pokemon-id {
 caption #star {
     cursor: pointer;
     font-size: 1.5em;
-    color: yellow;
+    color: blue;
     transition: color 0.3s;
     position: absolute;
     right: 0;
     top: 0;
     margin-right: 10px;
+    font-weight: lighter;
   }
   
 

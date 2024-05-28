@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 23, 2024 at 12:07 AM
+-- Generation Time: May 28, 2024 at 09:23 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -31,17 +31,6 @@ CREATE TABLE `favorites` (
   `user_id` int(11) NOT NULL,
   `pokemon_id` smallint(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `favorites`
---
-
-INSERT INTO `favorites` (`user_id`, `pokemon_id`) VALUES
-(17, 2),
-(17, 8),
-(17, 37),
-(17, 47),
-(17, 49);
 
 -- --------------------------------------------------------
 
@@ -229,9 +218,7 @@ CREATE TABLE `login` (
 --
 
 INSERT INTO `login` (`ID`, `NAME`, `PASSWORD`, `EMAIL`) VALUES
-(14, 'Phillip', '$2y$10$jz.9VvmsyyqxX4kNeC6A1es6AbORTR7WXe6/JFhSujjM5MTdGCCc.', 'phillip.christensen@uczen.zsk.poznan.pl'),
-(17, 'swords', '$2y$10$sK27oo6sE6YK3kxuvEpIMuAVYdHiIZa8KXUM67ploP0pHauOzALy2', 'phillip@christensen2.pl'),
-(18, 'llanovar', '$2y$10$9KQhckcdIVS3Qkqs6yMwTOmfAGKM8ndD9zcO9LyhtycaX1K8F0rQO', 'phillip@christensen.pl');
+(21, 'Quontum', '$2y$10$Zc8H/KN0FYHCUpDTcTlygu1q4YpIATPsy/HG5Gkj80Fetvj1wuK7.', 'phillip@christensen.pl');
 
 -- --------------------------------------------------------
 
@@ -674,11 +661,17 @@ ALTER TABLE `images`
 -- AUTO_INCREMENT for table `login`
 --
 ALTER TABLE `login`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `favorites`
+--
+ALTER TABLE `favorites`
+  ADD CONSTRAINT `pokemon id connect` FOREIGN KEY (`pokemon_id`) REFERENCES `pokemon` (`ID`);
 
 --
 -- Constraints for table `pokemon`

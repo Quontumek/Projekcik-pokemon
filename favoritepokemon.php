@@ -33,20 +33,20 @@ if (isset($_POST['reset-search'])) {
 <h1>Favorite Pokémon</h1>
 
 <div id="menu">
-    <ul>
-        <li class="buttons" id="mainpage"><a href="mainpage.php">Main Page</a></li>
-        <li class="buttons" id="loginButton"><a href="login.php">Login</a></li>
-        <li class="buttons" id="registerButton"><a href="register.php">Register</a></li>
-        <li class="buttons" id="dashboard"><a href="dashboardlogin.php">Dashboard</a></li>
-        <li class="buttons" id="pokedex"><a href="pokedex.php">Pokédex</a></li>
-
-    </ul>
+        <ul>
+            <li class="buttons" id="mainpage"><a href="mainpage">Main Page</a></li>
+            <li class="buttonsl" id="loginButton"><a href="login">Login</a></li>
+            <li class="buttonsr" id="registerButton"><a href="register">Register</a></li>
+            <li class="buttonsl" id="dashboard"><a href="dashboardlogin">Dashboard</a></li>
+            <li class="buttonsp" id="pokedex"><a href="pokedex">Pokédex</a></li>
+            <li class="buttonsp" id="favorites"><a href="favoritepokemon">Favorites</a></li> 
+        </ul> 
 </div>
 
 <br>
 
 <nav id="search">
-    <form action="favoritepokemon.php" method="POST">
+    <form action="favoritepokemon" method="POST">
         <button id="resetbtn" type="submit" name="reset-search">Reset</button>
         <input id="searchbar" type="text" name="search" placeholder="Search for a Pokémon">
         <button id="searchbtn" type="submit" name="submit-search">Search</button>
@@ -57,10 +57,25 @@ if (isset($_POST['reset-search'])) {
 <?php
 
 $typeMap = [
-    0 => '', 1 => 'normal', 2 => 'fire', 3 => 'water', 4 => 'electric',
-    5 => 'grass', 6 => 'ice', 7 => 'fighting', 8 => 'poison', 9 => 'ground',
-    10 => 'flying', 11 => 'psychic', 12 => 'bug', 13 => 'rock', 14 => 'ghost',
-    15 => 'dragon', 16 => 'dark', 17 => 'steel', 18 => 'fairy'
+    0 => '', 
+    1 => 'normal', 
+    2 => 'fire', 
+    3 => 'water', 
+    4 => 'electric',
+    5 => 'grass', 
+    6 => 'ice', 
+    7 => 'fighting', 
+    8 => 'poison', 
+    9 => 'ground',
+    10 => 'flying', 
+    11 => 'psychic', 
+    12 => 'bug', 
+    13 => 'rock', 
+    14 => 'ghost',
+    15 => 'dragon', 
+    16 => 'dark', 
+    17 => 'steel', 
+    18 => 'fairy'
 ];
 
 $searchCondition = $searchQuery ? "AND pokemon.Pokemon_name LIKE '%$searchQuery%'" : "";

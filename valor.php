@@ -20,12 +20,6 @@
     
         <ul>
             <li class="buttons" id="mainpage"><a href="mainpage">Main Page</a></li>
-|        
-            <li class="buttons" id="loginButton"><a href="login">Login</a></li> 
-|
-            <li class="buttons" id="registerButton"><a href="register">Register</a></li>
-|
-            <li class="buttons" id="dashboard"><a href="dashboardlogin">Dashboard</a></li>
         </ul>  
 </div>
 <div id="desc">

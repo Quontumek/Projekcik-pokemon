@@ -36,7 +36,7 @@ mysqli_stmt_close($stmt);
     mysqli_stmt_execute($stmt);
     
     if (mysqli_stmt_affected_rows($stmt) > 0) {
-        header("Location: login.php");
+        header("Location: login.php?success=insert_success");
     } else {
         header("Location: register.php?error=insert_failed");
     }

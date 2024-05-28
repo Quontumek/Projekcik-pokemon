@@ -3,49 +3,24 @@ include "db.php";
 session_start();
 
 
-//=======================================================================================================
-
-// to funkcje do searcha
-
 $searchQuery = "";
+$filter1 = "";
+$filter2 = "";
+$filter3 = "";
+
 if (isset($_POST['submit-search'])) {
     $searchQuery = mysqli_real_escape_string($conn, $_POST['search']);
 }
+
 if (isset($_POST['reset-search'])) {
     $searchQuery = "";
 }
 
-//=======================================================================================================
-
-// to funkcje do sortowania
-
-$validSortColumns = ['ID', 'HP', 'ATK', 'DEF', 'SATK', 'SDEF', 'SPD', 'Avg_weight', 'Avg_height'];
-$sortColumn = "ID";
-$sortOrder = "ASC";
-if (isset($_POST['sort-submit'])) {
-    $sortColumnInput = mysqli_real_escape_string($conn, $_POST['sort-column']);
-    $sortOrderInput = mysqli_real_escape_string($conn, $_POST['sort-order']);
-    if (in_array($sortColumnInput, $validSortColumns)) {
-        $sortColumn = $sortColumnInput;
-    }
-    if (in_array($sortOrderInput, ['ASC', 'DESC'])) {
-        $sortOrder = $sortOrderInput;
-    }
-}
-
-//=======================================================================================================
-
-// to funkcje do filtrowania
-$validTypes = ['all', 'normal', 'grass', 'fire', 'water', 'electric', 'fighting', 'poison', 'ground', 'flying', 'psychic', 'bug', 'rock', 'ghost', 'ice', 'dragon', 'dark', 'steel', 'fairy'];
-$filterType = "all";
 if (isset($_POST['filter-submit'])) {
-    $filterTypeInput = mysqli_real_escape_string($conn, $_POST['sort-type']);
-    if (in_array($filterTypeInput, $validTypes)) {
-        $filterType = $filterTypeInput;
-    }
+    $filter1 = $_POST['filter1'];
+    $filter2 = $_POST['filter2'];
+    $filter3 = $_POST['filter3'];
 }
-
-//=======================================================================================================
 
 $isLoggedIn = isset($_SESSION['user_id']);
 $userId = $isLoggedIn ? $_SESSION['user_id'] : null;
@@ -68,11 +43,12 @@ $userId = $isLoggedIn ? $_SESSION['user_id'] : null;
 <div id="menu">
     
         <ul>
-            <li class="buttons" id="mainpage"><a href="mainpage.php">Main Page</a></li>
-            <li class="buttons" id="loginButton"><a href="login.php">Login</a></li>
-            <li class="buttons" id="registerButton"><a href="register.php">Register</a></li>
-            <li class="buttons" id="dashboard"><a href="dashboardlogin.php">Dashboard</a></li>
-            <li class="buttons" id="favorites"><a href="favoritepokemon.php">Favorites</a></li>        
+            <li class="buttons" id="mainpage"><a href="mainpage">Main Page</a></li>
+            <li class="buttonsl" id="loginButton"><a href="login">Login</a></li>
+            <li class="buttonsr" id="registerButton"><a href="register">Register</a></li>
+            <li class="buttonsl" id="dashboard"><a href="dashboardlogin">Dashboard</a></li>
+            <li class="buttonsp" id="pokedex"><a href="pokedex">Pokédex</a></li>
+            <li class="buttonsp" id="favorites"><a href="favoritepokemon">Favorites</a></li> 
         </ul> 
 </div>
 
@@ -87,43 +63,47 @@ $userId = $isLoggedIn ? $_SESSION['user_id'] : null;
 </nav>
 <nav id="sort">
     <form action="pokedex.php" method="POST">
+
         <label>Sort by:</label>
-        <select name="sort-column">
-            <option value="HP">HP</option>
-            <option value="ATK">Attack</option>
-            <option value="DEF">Defense</option>
-            <option value="SATK">Special Attack</option>
-            <option value="SDEF">Special Defense</option>
-            <option value="SPD">Speed</option>
-            <option value="Avg_weight">Weight</option>
-            <option value="Avg_height">Height</option>
-        </select>
-        <select name="sort-order">
-            <option value="ASC">Ascending</option>
-            <option value="DESC">Descending</option>
-        </select>
-        <select name="sort-type">
-            <option value="all">All</option>
-            <option value="normal">Normal</option>
-            <option value="grass">Grass</option>
-            <option value="fire">Fire</option>
-            <option value="water">Water</option>
-            <option value="electric">Electric</option>
-            <option value="fighting">Fighting</option>
-            <option value="poison">Poison</option>
-            <option value="ground">Ground</option>
-            <option value="flying">Flying</option>
-            <option value="psychic">Psychic</option>
-            <option value="bug">Bug</option>
-            <option value="rock">Rock</option>
-            <option value="ghost">Ghost</option>
-            <option value="ice">Ice</option>
-            <option value="dragon">Dragon</option>
-            <option value="dark">Dark</option>
-            <option value="steel">Steel</option>
-            <option value="fairy">Fairy</option>
-        </select>
-        <button type="submit" name="filter-submit">Filter</button>
+        <label for="filter1">Stat</label>
+            <select name="filter1">
+            <option value="HP" <?php if($filter1 == 'HP') echo 'selected'; ?>>HP</option>
+            <option value="ATK" <?php if($filter1 == 'ATK') echo 'selected'; ?>>Attack</option>
+            <option value="DEF" <?php if($filter1 == 'DEF') echo 'selected'; ?>>Defense</option>
+            <option value="SATK" <?php if($filter1 == 'SATK') echo 'selected'; ?>>Special Attack</option>
+            <option value="SDEF" <?php if($filter1 == 'SDEF') echo 'selected'; ?>>Special Defense</option>
+            <option value="SPD" <?php if($filter1 == 'SPD') echo 'selected'; ?>>Speed</option>
+            </select>
+
+        <label for="filter2">Order</label>
+            <select name="filter2">
+                <option value="ASC" <?php if($filter2 == 'ASC') echo 'selected'; ?>>Ascending</option>
+                <option value="DESC" <?php if($filter2 == 'DESC') echo 'selected'; ?>>Descending</option>
+            </select>
+        
+        <label for="filter3">Type</label>
+            <select name="filter3">
+                <option value="all" <?php if($filter3 == 'all') echo 'selected'; ?>>All</option>
+                <option value="Normal" <?php if($filter3 == 'Normal') echo 'selected'; ?>>Normal</option>
+                <option value="Fire" <?php if($filter3 == 'Fire') echo 'selected'; ?>>Fire</option>
+                <option value="Water" <?php if($filter3 == 'Water') echo 'selected'; ?>>Water</option>
+                <option value="Electric" <?php if($filter3 == 'Electric') echo 'selected'; ?>>Electric</option>
+                <option value="Grass" <?php if($filter3 == 'Grass') echo 'selected'; ?>>Grass</option>
+                <option value="Ice" <?php if($filter3 == 'Ice') echo 'selected'; ?>>Ice</option>
+                <option value="Fighting" <?php if($filter3 == 'Fighting') echo 'selected'; ?>>Fighting</option>
+                <option value="Poison" <?php if($filter3 == 'Poison') echo 'selected'; ?>>Poison</option>
+                <option value="Ground" <?php if($filter3 == 'Ground') echo 'selected'; ?>>Ground</option>
+                <option value="Flying" <?php if($filter3 == 'Flying') echo 'selected'; ?>>Flying</option>
+                <option value="Psychic" <?php if($filter3 == 'Psychic') echo 'selected'; ?>>Psychic</option>
+                <option value="Bug" <?php if($filter3 == 'Bug') echo 'selected'; ?>>Bug</option>
+                <option value="Rock" <?php if($filter3 == 'Rock') echo 'selected'; ?>>Rock</option>
+                <option value="Ghost" <?php if($filter3 == 'Ghost') echo 'selected'; ?>>Ghost</option>
+                <option value="Dragon" <?php if($filter3 == 'Dragon') echo 'selected'; ?>>Dragon</option>
+                <option value="Dark" <?php if($filter3 == 'Dark') echo 'selected'; ?>>Dark</option>
+                <option value="Steel" <?php if($filter3 == 'Steel') echo 'selected'; ?>>Steel</option>
+                <option value="Fairy" <?php if($filter3 == 'Fairy') echo 'selected'; ?>>Fairy</option>
+            </select>
+        <button id="filterbtn" type="submit" name="filter-submit">Filter</button>
     </form>
 </nav>
 
@@ -154,28 +134,7 @@ $typeMap = [
     18 => 'fairy'
 ];
 
-if ($searchQuery) {
-    $sql = "SELECT images.image, pokemon.*, stats.*, 
-            primary_type.type AS PrimaryType, 
-            secondary_type.type AS SecondaryType
-            FROM images
-            INNER JOIN pokemon ON images.ID = pokemon.ID
-            INNER JOIN stats ON pokemon.ID = stats.ID
-            LEFT JOIN types AS primary_type ON pokemon.Primary_type = primary_type.ID
-            LEFT JOIN types AS secondary_type ON pokemon.Secondary_type = secondary_type.ID
-            WHERE pokemon.Pokemon_name LIKE '%$searchQuery%'
-            ORDER BY images.ID ASC";
-} else {
-    $sql = "SELECT images.image, pokemon.*, stats.*, primary_type.type AS PrimaryType, 
-            secondary_type.type AS SecondaryType
-            FROM images
-            INNER JOIN pokemon ON images.ID = pokemon.ID
-            INNER JOIN stats ON pokemon.ID = stats.ID
-            LEFT JOIN types AS primary_type ON pokemon.Primary_type = primary_type.ID
-            LEFT JOIN types AS secondary_type ON pokemon.Secondary_type = secondary_type.ID
-            ORDER BY images.ID ASC";
-}
-
+// TUTAJ JEST KOD DO WYSWIETLANIA POKEMONOW Z SERCZA
 
 $sql = "SELECT images.image, pokemon.*, stats.*, 
         primary_type.type AS PrimaryType, 
@@ -186,21 +145,21 @@ $sql = "SELECT images.image, pokemon.*, stats.*,
         LEFT JOIN types AS primary_type ON pokemon.Primary_type = primary_type.ID
         LEFT JOIN types AS secondary_type ON pokemon.Secondary_type = secondary_type.ID";
 
-    if ($searchQuery) {
-        $sql .= " WHERE pokemon.Pokemon_name LIKE '%$searchQuery%'";
+if ($searchQuery) {
+    $sql .= " WHERE pokemon.Pokemon_name LIKE '%$searchQuery%'";
+}
+
+if ($filter1 && $filter2 && $filter3 !== 'all') {
+    if ($searchQuery || ($filter1 && $filter2)) {
+        $sql .= " WHERE (primary_type.ID = (SELECT ID FROM types WHERE `Type` = '$filter3')) OR (secondary_type.ID = (SELECT ID FROM types WHERE `Type` = '$filter3'))";
+    } else {
+        $sql .= " WHERE (primary_type.ID = (SELECT ID FROM types WHERE `Type` = '$filter3')) OR (secondary_type.ID = (SELECT ID FROM types WHERE `Type` = '$filter3'))";
     }
+}
 
-    if ($filterType !== 'all') {
-        if ($searchQuery) {
-            $sql .= " AND primary_type.type = '$filterType'";
-        } else {
-            $sql .= " WHERE primary_type.type = '$filterType'";
-        }
-    }
-
-    $sql .= " ORDER BY pokemon.ID $sortOrder";
-
-echo "SQL Query: $sql<br>";
+if ($filter1 && $filter2) {
+    $sql .= " ORDER BY $filter1 $filter2";
+}
 
 $res = mysqli_query($conn, $sql);
 if (mysqli_num_rows($res) > 0) {
@@ -323,5 +282,4 @@ if (mysqli_num_rows($res) > 0) {
 
 </body>
 </html>
-
 

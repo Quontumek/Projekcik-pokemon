@@ -26,11 +26,12 @@ session_start();
 
 <div id="menul">
         <ul>
-            <li class="buttons" id="mainpage"><a href="mainpage.php">Main Page</a></li>
-            <li class="buttons" id="loginButton"><a href="login.php">Login</a></li>
-            <li class="buttons" id="registerButton"><a href="register.php">Register</a></li>
-            <li class="buttons" id="dashboard"><a href="dashboardlogin.php">Dashboard</a></li>
-            <li class="buttons" id="favorites"><a href="favoritepokemon.php">Favorites</a></li>
+            <li class="buttons" id="mainpage"><a href="mainpage">Main Page</a></li>
+            <li class="buttonsl" id="loginButton"><a href="login">Login</a></li>
+            <li class="buttonsr" id="registerButton"><a href="register">Register</a></li>
+            <li class="buttonsl" id="dashboard"><a href="dashboardlogin">Dashboard</a></li>
+            <li class="buttonsp" id="pokedex"><a href="pokedex">Pokédex</a></li>
+            <li class="buttonsp" id="favorites"><a href="favoritepokemon">Favorites</a></li> 
         </ul>  
 </div>
 
@@ -38,12 +39,11 @@ session_start();
 
 <form id="forml" method="post" action="loginhandler">
 
-<br>
-<br>
+
 <br>    
         <label>Email</label>
         <div class="form-control">
-        <input class="field" type="text" name="mail" autocomplete="off">
+        <input class="field" type="text" name="mail" autocomplete="on">
         </div>
         <label>Password</label>
         <div class="form-control">
@@ -63,11 +63,6 @@ session_start();
 
 </nav>
 
-<div id="black-rectangle">
-                <ul id="tmV_ul">Team Valor</ul>
-                <ul id="tmI_ul">Team Instinct</ul>
-                <ul id="tmM_ul">Team Mystic</ul>
-</div>
 
 </body>
 </html>
