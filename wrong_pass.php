@@ -8,10 +8,17 @@
     <link rel="icon" href="./Images/pikachuicon.png" />
 </head>
 
-<body>
-    <h2>Wrong password given, try again.</h2>
-    <nav> 
-        <button><a href="login">Return</a></button>
-    </nav>
+<body style="background-image: url('./Images/wrongpassbg.png');">
+    <div class="center-content">
+        <h2>Wrong PASSWORD given</h2>
+        <h2>SERVER is CONFUSED</h2>
+        <h2>Try again.</h2>
+        <nav> 
+            <button><a href="login">Return</a></button>
+        </nav>
+    </div>
+
+    <img src="./Images/Pika.png" alt="" class="bottom-right">
+
 </body>
 </html>

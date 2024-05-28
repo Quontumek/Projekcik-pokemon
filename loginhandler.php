@@ -3,11 +3,14 @@ require "db.php";
 
 session_start();
 
-$email = mysqli_real_escape_string($conn, $_POST["mail"]);
-$password = mysqli_real_escape_string($conn, $_POST["password"]);
+$email = filter_input(INPUT_POST, 'mail', FILTER_VALIDATE_EMAIL);
+$password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_SPECIAL_CHARS);
 
 $query = "SELECT * FROM login WHERE EMAIL = ?";
 $stmt = mysqli_prepare($conn, $query);
+if ($stmt === false) {
+    die('MySQL prepare statement error: ' . mysqli_error($conn));
+}
 mysqli_stmt_bind_param($stmt, "s", $email);
 mysqli_stmt_execute($stmt);
 $result = mysqli_stmt_get_result($stmt);
@@ -28,4 +31,4 @@ if (mysqli_num_rows($result) == 1) {
     header("Location: wrong_pass");
     exit();
 }
-?>
+

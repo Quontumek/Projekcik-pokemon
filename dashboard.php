@@ -35,9 +35,9 @@ $stmt->close();
     <title>Dashboard</title>
     <link rel="icon" href="./Images/pikachuicon.png" />
 </head>
-<body>
+<body style="background-image: url('./Images/dexboard.jpg');">
     <header>
-        <h1>Le Dash</h1>
+        <h1>Dashboard</h1>
     </header>
     
     <nav>
