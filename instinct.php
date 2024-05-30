@@ -23,8 +23,8 @@
         </ul>  
 </div>
 <div id="desc">
-    <p>Team Instinct is led by Spark. He is known for his laid-back and positive attitude, emphasizing the importance of trusting one's instincts in training Pokémon.</p><br>
-    <p>Team Instinct believes in the natural connection between trainers and their Pokémon. Spark encourages trainers to rely on their intuition and the innate abilities of their Pokémon. The team's approach is centered on the idea that Pokémon have excellent instincts that can lead to success.</p><br>
+    <p>Team Instinct is led by Spark. He is known for his laid-back and positive attitude, emphasizing the importance of trusting one's instincts in training Pokémon.</p>
+    <p>Team Instinct believes in the natural connection between trainers and their Pokémon. Spark encourages trainers to rely on their intuition and the innate abilities of their Pokémon. The team's approach is centered on the idea that Pokémon have excellent instincts that can lead to success.</p>
     <p> The team's mascot is the Legendary Pokémon Zapdos, an Electric/Flying type Pokémon. Zapdos represents the sharp instincts and the natural, unyielding energy that Team Instinct values.</p>
 </div>
 <div class="leader">

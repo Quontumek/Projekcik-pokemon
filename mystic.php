@@ -23,8 +23,8 @@
         </ul>  
 </div>
 <div id="desc">
-    <p>Team Mystic is led by Blanche, who is known for their calm, analytical approach to training Pokémon. Blanche emphasizes the importance of wisdom and knowledge in understanding and enhancing Pokémon's power.</p><br>
-    <p>Team Mystic believes in a scientific approach to training Pokémon. Blanche encourages trainers to study Pokémon evolution and to use logic and reason to unlock the full potential of their Pokémon. The team values calmness, patience, and strategic thinking.</p><br>
+    <p>Team Mystic is led by Blanche, who is known for their calm, analytical approach to training Pokémon. Blanche emphasizes the importance of wisdom and knowledge in understanding and enhancing Pokémon's power.</p>
+    <p>Team Mystic believes in a scientific approach to training Pokémon. Blanche encourages trainers to study Pokémon evolution and to use logic and reason to unlock the full potential of their Pokémon. The team values calmness, patience, and strategic thinking.</p>
     <p>The team's mascot is the Legendary Pokémon Articuno, an Ice/Flying type Pokémon. Articuno represents the cool, collected, and strategic nature of Team Mystic.</p>
 </div>
 <div class="leader">

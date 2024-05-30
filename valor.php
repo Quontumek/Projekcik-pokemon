@@ -23,8 +23,8 @@
         </ul>  
 </div>
 <div id="desc">
-    <p>Team Valor is led by Candela. She is known for her passion and dedication to training Pokémon to be the best they can be.</p><br>
-    <p>Valor focuses on the strength and power of Pokémon. Candela believes in training hard to make Pokémon strong and emphasizes the importance of dedication and perseverance in becoming the best.</p><br>
+    <p>Team Valor is led by Candela. She is known for her passion and dedication to training Pokémon to be the best they can be.</p>
+    <p>Valor focuses on the strength and power of Pokémon. Candela believes in training hard to make Pokémon strong and emphasizes the importance of dedication and perseverance in becoming the best.</p>
     <p>The team's mascot is the Legendary Pokémon Moltres, a Fire/Flying type Pokémon. Moltres represents the fiery determination and passion of Team Valor.</p>
 </div>
 <div class="leader">

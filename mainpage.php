@@ -43,7 +43,7 @@ session_start();
     </h3>
 </div>
 
-<a id="podpis">Strona stworzona w ramach projektu PHP w klasie IV przez Phillipa Christensen i Aleksandra Jaknowskiego</a>
+<a id="podpis">Strona stworzona w ramach projektu PHP w klasie IV przez Phillipa Christensena i Aleksandra Jankowskiego</a>
 
      
 <div id="black-rectangle">
