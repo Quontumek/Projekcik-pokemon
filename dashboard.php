@@ -59,7 +59,12 @@ $stmt->close();
         </section>
     </main>
     <div>
-    <button type="submit" id="logout">Logout</button>
+        <button type="submit" id="logout">Logout</button>
+    </div>
+    <div>
+        <form action="accountdelete.php" method="POST" onsubmit="return confirm('Are you sure you want to delete your account?');">
+            <button id="logout" type="submit" name="deleteAccount">Delete Account</button>
+        </form>
     </div>
 </body>
 </html>
