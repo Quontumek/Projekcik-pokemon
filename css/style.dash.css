@@ -1,6 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Ojuju:wght@200..800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+@media screen and (max-width: 1000px){
+    
+#loginButton, #registerButton{
+    display: none;
+}
+
+
 body {
     font-family: 'Ojuju', sans-serif;
     margin: 0;
@@ -33,6 +41,165 @@ h1 {
     font-weight: 400;
     font-style: normal;
     padding: 20px;
+    background-color: white;
+    border-radius: 5px;
+    border: 2px dotted black;
+}
+
+nav {
+    background-color: rgb(255, 255, 255);
+    border-bottom: 3px solid black;
+    border-top: 3px solid black;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    text-wrap: wrap;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: black;
+    font-size: 25px;
+}
+
+main {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+section {
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 20px;
+    width: 45%;
+}
+
+section h2 {
+    margin-top: 0;
+    font-size: 25px;
+    color: black;
+}
+
+section ul {
+    padding-left: 20px;
+    font-size: 20px;
+}
+
+#logout {
+    background-color: #307bfa;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    margin-left: 40px;
+}
+
+#logout:hover {
+    background-color: #003a9e;
+}
+
+.buttons {
+    text-decoration: none;
+}
+
+li {
+    text-decoration: none;
+}
+
+.no-underline {
+    text-decoration: none;
+    color: black;
+}
+    
+    main {
+        flex-direction: column;
+    }
+    h2{
+        width: 90%;
+    }
+    section {
+        width: 90%;
+    }
+    #logout {
+        background-color: #000000;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 18px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-left: 40px;
+        border: solid 2px white;
+    }
+
+}
+
+
+/*
+    Phone
+================================
+    Desktop
+*/
+
+
+
+
+
+@media screen and (min-width: 1000px){
+
+
+body {
+    font-family: 'Ojuju', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url("./Images/paski-tlo.jpg");
+    background-size: cover;
+}
+
+header {
+    position: relative;
+    background-image: url('./Images/pokemonbanner.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 20px;
+    margin-bottom: 15px;
+    font-family: 'Bebas Neue', sans-serif;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+h1 {
+    position: relative;
+    z-index: 1;
+    color: black;
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    padding: 20px;
+    background-color: white;
+    border-radius: 5px;
+    border: 2px dotted black;
 }
 
 nav {
@@ -114,4 +281,6 @@ li {
 .no-underline {
     text-decoration: none;
     color: black;
+}
+
 }

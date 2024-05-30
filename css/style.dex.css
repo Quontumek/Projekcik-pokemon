@@ -1,6 +1,460 @@
 @import url('https://fonts.googleapis.com/css2?family=Ojuju:wght@200..800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
+@media only screen and (max-width:1000px) {
+
+
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 70%;
+    height: 0px;
+    align-items: left;
+    display: inline;
+    margin:auto;
+    margin-top: 20px;
+    margin-bottom: 90px;
+  }
+  
+  form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    background-color: rgb(139, 139, 139);
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 6px;
+    margin-top: 20px;
+  }
+
+  #sort {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+ #searchbar {
+    width: 50%;
+    height: 40px;
+    margin: 0 5px;
+    cursor: pointer;
+  }
+  
+  #searchbtn, #resetbtn {
+    width: 20%;
+    height: 40px; 
+    cursor: pointer;
+  }
+
+  #searchbtn {
+    order: 2;
+  }
+  
+  #resetbtn {
+    order: 0;
+  }
+  
+  #filterbtn{
+    justify-self: flex-end;
+  }
+  
+  
+  h1 {
+    display: flex;
+    justify-content: center;
+    height: 100px;
+    border: 2px solid rgb(0, 0, 0);
+    color: yellow;
+    font-size: 50px;
+    font-family: 'Ojuju', sans-serif;
+    -webkit-text-stroke: 2px rgb(0, 0, 0);
+    background-color: var(--grass);
+    margin: auto;
+    width: 100%;
+    align-items: center;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+  
+
+  #menu {
+    display: flex;
+    background-color:rgb(255, 255, 255);
+    justify-content: center;
+    align-items: center;
+    border: 2px solid rgb(0, 0, 0);
+    margin: auto;
+    width: 100%;
+    text-decoration: none;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    margin-bottom: 20px;
+    height: 50px;
+  }
+
+  form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 50px;
+    background-color: rgb(139, 139, 139);
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 6px;
+    margin-top: 20px;
+    align-items: left;
+    display: inline
+  }
+
+  #registerButton, #pokedex, #favoritess{
+    display: none;
+}
+
+  a{
+    text-decoration: none;
+    color: black;
+    font-size: 4vw;
+  }
+  
+  
+  ul{
+    display:flex;
+    gap: 40px;
+    padding: 0;
+    justify-content: center;
+    height: 30%;
+    width: 700px;
+    align-items: center;
+    margin-inline: auto;
+    background-color: white;
+    font-size: 1.1vw;
+    text-decoration: none;
+  }
+  
+  
+  /*
+  ==================================================================================================================================================
+  GUZIKI NA KOLORY W MENU 
+  */
+  
+  .buttons .visited {
+    border: solid black 2px;
+    padding: 2.5px;
+    background-color: rgb(192, 45, 45);
+    color: rgb(0, 0, 0);
+  }
+  
+  
+  .buttons :hover {
+    border: solid black 2px;
+    padding: 2.5px;
+    background-color: rgb(192, 45, 45);
+    border-radius: 2.5px;
+    color: white;
+  }
+  .buttonsl .visited {
+    border: solid black 2px;
+    padding: 2.5px;
+    background-color: royalblue;
+    color: rgb(0, 0, 0);
+  }
+  
+  .buttonsl :hover {
+    border: solid black 2px;
+    padding: 2.5px;
+    background-color: royalblue;
+    border-radius: 2.5px;
+    color: white;
+  }
+  
+  
+  .buttonsr .visited {
+    border: solid black 2px;
+    padding: 2.5px;
+    background-color: black;
+    color: rgb(0, 0, 0);
+  }
+  
+  .buttonsr :hover {
+    border: solid black 2px;
+    padding: 2.5px;
+    background-color: black;
+    border-radius: 2.5px;
+    color: white;
+  }
+  
+  .buttonsp .visited {
+    border: solid black 2px;
+    padding: 2.5px;
+    background-color: var(--grass);
+    color: rgb(0, 0, 0);
+  }
+  
+  .buttonsp :hover {
+    border: solid black 2px;
+    padding: 2.5px;
+    background-color: var(--grass);
+    border-radius: 2.5px;
+    color: black;
+  }
+  
+  :root {
+    --grass: #7AC74C;
+  }
+  /*
+  GUZIKI NA KOLORY W MENU 
+  ==================================================================================================================================================
+  */
+  
+  
+  
+  div#block-container{
+      background-color: rgb(139, 139, 139);
+  }
+  
+  li {
+      color: rgb(0, 0, 0);
+      display: block;
+      background-color: white;
+      size: 1vw;  
+      text-decoration: none;
+  }
+  
+  li.ref{
+      background-color: rgb(139, 139, 139);; 
+  }
+  
+  div#dex {
+      margin-top: 40px;
+      padding: 20px;
+      display: flex;
+      margin:auto;
+      background-color: rgb(139, 139, 139);
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      width: 80%;
+      border-radius: 50px;
+      border-style: inset;
+      border-width: 5px;
+      margin-bottom: 200px;
+  }
+
+  div#dexf {
+
+    padding: 20px;
+    display: flex;
+    margin: auto;
+    margin-top: 40px;
+    background-color: rgb(139, 139, 139);
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 80%;
+    border-radius: 50px;
+    border-style: inset;
+    border-width: 5px;
+    margin-bottom: 200px;
+}
+  
+  #innerpicture{
+    max-width: 180px;
+    max-height: 180px;
+    margin-left: 10px;
+    margin-top: 10px;
+  }
+  
+  .description {
+    float: right; 
+    margin-left: 1px;
+    margin-right: 10px;
+    margin-top: 20px;
+    width: 40%; 
+    font-size: 4vw;
+    
+  }
+  
+  
+  img {
+      max-width:100%;
+      max-height:100%;
+      border: 1px solid black;
+      border-radius: 25px;
+  }
+  
+  
+  .alb{
+      width: 200px;
+      height: 200px;
+      padding: 15px;
+  }
+  .alb img{
+      width: 100%;
+      height: 100%;
+      background-color: darkgray;
+  }
+  
+  div.elementToHover{
+      position: relative;
+      display: flex;
+      place-content: center;
+  }
+  div.elementToPopup{
+      display: none;
+      position: absolute;
+      top: -60px;
+      z-index: 1;
+      background: lightblue;
+      padding: 3px;
+      font-size: 1rem;
+      color: black;
+      border-radius: 2px;
+      animation: fadeIn 0.6s;
+      border: 2px solid black;
+  }
+  
+  
+  
+  
+  div.elementToPopup:before{
+      content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -8px;
+    border: 8px solid transparent;
+    border-top: 8px solid royalblue;
+  }
+  @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+     }
+  
+     table {
+      border-collapse: collapse;
+      border: 2px solid rgb(160 160 160);
+      font-family: sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 1px;
+    }
+    
+    caption {
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+  
+  caption .pokemon-id {
+      position: absolute;
+      left: 0;
+      margin-left: 10px;
+  }
+  
+  caption #star {
+      cursor: pointer;
+      font-size: 1.5em;
+      color: blue;
+      transition: color 0.3s;
+      position: absolute;
+      right: 0;
+      top: 0;
+      margin-right: 10px;
+      font-weight: lighter;
+    }
+    
+  
+  caption .pokemon-name {
+      text-align: center;
+  }
+    
+    th,
+    td {
+      border: 1px solid rgb(160 160 160);
+      padding: 8px 10px;
+    }
+  
+    td{
+      text-align: center;
+    }
+    section{
+      padding: none;
+      width: 20%;
+    }
+    div.type{
+      border: 1px solid black;
+      border-radius: 25px;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    :root {
+      --normal: #A8A77A;
+      --fire: #EE8130;
+      --water: #6390F0;
+      --electric: #F7D02C;
+      --grass: #7AC74C;
+      --ice: #96D9D6;
+      --fighting: #C22E28;
+      --poison: #A33EA1;
+      --ground: #E2BF65;
+      --flying: #A98FF3;
+      --psychic: #F95587;
+      --bug: #A6B91A;
+      --rock: #B6A136;
+      --ghost: #735797;
+      --dragon: #6F35FC;
+      --dark: #705746;
+      --steel: #B7B7CE;
+      --fairy: #D685AD;
+  }
+  
+  #w-h-numbers{
+      margin-left: 20px;
+    }
+  
+  div.type {
+      border: 1px solid black;
+      border-radius: 25px;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      padding: 5px;
+      width: 120px;
+      color: white;
+  }
+  
+  .normal { background-color: var(--normal); }
+  .fire { background-color: var(--fire); }
+  .water { background-color: var(--water); }
+  .electric { background-color: var(--electric); color: black; }
+  .grass { background-color: var(--grass); }
+  .ice { background-color: var(--ice); color: black; }
+  .fighting { background-color: var(--fighting); }
+  .poison { background-color: var(--poison);}
+  
+  
+  
+}
+
+
+/*
+==================================================================================================================================================
+CSS na duże ekrany
+*/
+
+
+
+
+@media only screen and (min-width:1000px) {
 
 body {
     display: flex;
@@ -41,22 +495,33 @@ nav {
 #searchbar {
   width: 50%;
   height: 40px;
-  margin-top: 2px;
+  margin: 0 26px;
   cursor: pointer;
 }
+
 #searchbtn{
   width: 20%;
-  height: 100%;
-  float: right;
-  margin-top: 15px;
+  height: 40px; 
   cursor: pointer;
+  float: right;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
+
 #resetbtn {
   width: 20%;
-  height: 100%;
-  float: left;
-  margin-top: 15px;
+  height: 40px; 
   cursor: pointer;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+#searchbtn {
+  order: 2;
+}
+
+#resetbtn {
+  order: 0;
 }
 
 #filterbtn{
@@ -406,4 +871,4 @@ div.type {
 
 
 
-
+}

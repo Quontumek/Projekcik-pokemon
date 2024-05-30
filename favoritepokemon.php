@@ -38,8 +38,8 @@ if (isset($_POST['reset-search'])) {
             <li class="buttonsl" id="loginButton"><a href="login">Login</a></li>
             <li class="buttonsr" id="registerButton"><a href="register">Register</a></li>
             <li class="buttonsl" id="dashboard"><a href="dashboardlogin">Dashboard</a></li>
-            <li class="buttonsp" id="pokedex"><a href="pokedex">Pokédex</a></li>
-            <li class="buttonsp" id="favorites"><a href="favoritepokemon">Favorites</a></li> 
+            <li class="buttonsp" id="pokede"><a href="pokedex">Pokédex</a></li>
+            <li class="buttonsp" id="favoritess"><a href="favoritepokemon">Favorites</a></li> 
         </ul> 
 </div>
 
@@ -53,7 +53,7 @@ if (isset($_POST['reset-search'])) {
     </form>
 </nav>
 
-<div id="dex">
+<div id="dexf">
 <?php
 
 $typeMap = [

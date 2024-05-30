@@ -16,6 +16,9 @@
     #lir, #rir{
         display: none;
     }
+    #registerButton{
+        display: none;
+    }
 }
 
 
