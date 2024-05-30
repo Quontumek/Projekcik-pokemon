@@ -52,12 +52,34 @@ $stmt->close();
         <section>
             <h2>User Data</h2>
             <ul>
-                <li>Name: <?php echo("$name")?></li>
-                <li>Email: <?php echo("$email")?></li>
+                <li>Name: <?php echo htmlspecialchars($name); ?></li>
+                <li>Email: <?php echo htmlspecialchars($email); ?></li>
                 <li>Certified Geek</li>
             </ul>
         </section>
+        <section>
+            <h2>Update Information</h2>
+            <form action="accountnamechange.php" method="POST">
+                <ul>
+                    <li>
+                        <label for="newname">New Name:</label>
+                        <input type="text" id="newname" name="newname" required>
+                    </li>
+                </ul>
+                <button type="submit">Change Name</button>
+            </form>
+            <form action="accountemailchange.php" method="POST">
+                <ul>
+                    <li>
+                        <label for="newemail">New Email:</label>
+                        <input type="email" id="newemail" name="newemail" required>
+                    </li>
+                </ul>
+                <button type="submit">Change Email</button>
+            </form>
+        </section>
     </main>
+
     <div>
         <button type="submit" id="logout">Logout</button>
     </div>
