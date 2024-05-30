@@ -53,7 +53,7 @@ if (isset($_POST['reset-search'])) {
     </form>
 </nav>
 
-<div id="dexf">
+<div id="dex">
 <?php
 
 $typeMap = [
