@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Ojuju:wght@200..800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+@media only screen and (min-width:1000px) {
 body {
     height: 100vh;
     width: 100%;
@@ -202,4 +203,196 @@ li {
 a{
     text-decoration: none;
     color: black;
+}
+}
+
+@media only screen and (max-width:1000px){
+    body {
+        height: 100vh;
+        width: 100%;
+        padding: 0px;
+        margin: 0px;
+        background-size: cover;
+    }
+    body.valor{
+        background-color: #f9040050;
+    }
+    body.instinct{
+        background-color: #ffdd0252;
+    }
+    body.mystic{
+        background-color: #0105ff56;
+    }
+    h1 {
+        display: flex;
+        justify-content: center;
+        border: 2px solid rgb(0, 0, 0);
+        font-size: 8vw;
+        font-family: 'Ojuju', sans-serif;
+        -webkit-text-stroke: 1px rgb(0, 0, 0);
+        margin: auto;
+        width: 100%;
+        align-items: center;
+        border-top-left-radius: 6px;
+        border-top-right-radius: 6px;
+    }
+    
+    h1.valor{
+        background-color: #f90600;
+        color:#ffdd02;
+    }
+    h1.instinct{
+        background-color:#ffdd02;
+        color:#029efe
+    }
+    h1.mystic{
+        background-color: #029efe;
+        color: #f90600;
+    }
+    
+    
+    #pasekL, #pasekR{
+        display: none;
+    }
+    div#desc{
+        width: 100%;
+        padding: 5px;
+        font-family: "Spectral", serif;
+        font-weight: 500;
+        font-style: italic;
+    }
+    p{
+        font-size: 15px;
+    }
+    div.leader {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width:100%;
+    }
+    img.leader{
+        max-width:100%;
+        max-height:100%;
+    }
+    figure {
+        border: thin black solid;
+        display: table;
+        flex-flow: column;
+        padding: 5px;
+        max-width: 220px;
+    }
+    figcaption {
+        display: table-caption;
+      caption-side: top;
+      color: #fff;
+      font: italic smaller sans-serif;
+      padding: 1px;
+      text-align: center;
+    }
+    figcaption.valor{
+        background-color: #5a0200;
+    }
+    figcaption.instinct{
+        background-color: #837100;
+    }
+    figcaption.mystic{
+        background-color: #000275;
+    }
+    img.banner {
+        max-width:100%;
+        max-height:100%;
+        border-top: 1px solid black;
+        position: absolute;
+        top: 0;
+        width: 15%;
+        height: 90%;
+    }
+    #menu {
+        display: flex;
+        background-color: rgb(255, 255, 255);
+        justify-content: center;
+        font-size: 3vw;
+        align-items: center;
+        border: 2px solid rgb(0, 0, 0);
+        margin: auto;
+        height: 8vw;
+        width: 100%;
+        text-size-adjust: 50px;
+        border-bottom-left-radius: 6px;
+        border-bottom-right-radius: 6px;
+    }
+    .buttons .visited {
+        border: solid black 2px;
+        padding: 2.5px;
+        background-color: rgb(192, 45, 45);
+        color: rgb(0, 0, 0);
+    }
+    
+    .buttons :hover {
+        border: solid black 2px;
+        padding: 2.5px;
+        background-color: rgb(192, 45, 45);
+        border-radius: 2.5px;
+        color: white;
+    }
+    ul{
+        display:flex;
+        gap: 20px;
+        padding: 0;
+        justify-content: center;
+        width: 550px;
+        align-items: center;
+        background-color: white;
+        font-size: 3vw;
+        text-decoration: none;
+        margin-bottom: 12px;
+    }
+    
+    li {
+        display: block;
+        background: transparent;
+        border-radius: 5px;
+        color: white;
+    }
+    #black-rectangle {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 50px;
+        background-color: black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    #black-rectangle ul {
+        list-style: none; 
+        margin: 0;
+        padding: 0;
+    }
+    
+    
+    #tmV_ul {
+        background-color: #f90600;
+    }
+    
+    #tmI_ul {
+        background-color: #ffdd02;
+    }
+    
+    #tmM_ul {
+        background-color:  #029efe;
+    }
+    
+    #tmV_ul, #tmI_ul, #tmM_ul {
+        margin: 0 10px;
+        font-size: x-large;
+        padding: 10px;
+        font-weight: bold;
+    }
+    a{
+        text-decoration: none;
+        color: black;
+    }
 }
