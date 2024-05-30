@@ -30,7 +30,7 @@ if (isset($_POST['reset-search'])) {
 </head>
 <body style="background-image: url('./Images/paski-tlo.jpg')">
 
-<h1>Favorite Pokémon</h1>
+<h1>Favorite</h1>
 
 <div id="menu">
         <ul>
