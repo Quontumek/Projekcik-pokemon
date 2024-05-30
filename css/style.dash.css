@@ -13,8 +13,8 @@ body {
     font-family: 'Ojuju', sans-serif;
     margin: 0;
     padding: 0;
-    background-image: url("./Images/paski-tlo.jpg");
-    background-size: cover;
+    background-image: url(../Images/phone.jpg);
+    background-size: fill;
 }
 
 header {
@@ -98,18 +98,6 @@ section ul {
     font-size: 20px;
 }
 
-#logout {
-    background-color: #307bfa;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 18px;
-    border-radius: 5px;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    margin-left: 40px;
-}
 
 #logout:hover {
     background-color: #003a9e;
@@ -166,11 +154,11 @@ li {
 
 
 body {
+    background-image: url(../Images/dexboard.jpg);
     font-family: 'Ojuju', sans-serif;
     margin: 0;
     padding: 0;
-    background-image: url("./Images/paski-tlo.jpg");
-    background-size: cover;
+    background-size: fill;
 }
 
 header {
@@ -254,16 +242,20 @@ section ul {
 }
 
 #logout {
-    background-color: #307bfa;
+    background-color: #000000;
     color: white;
     border: none;
     padding: 10px 20px;
     font-size: 18px;
     border-radius: 5px;
     cursor: pointer;
+    border: solid 2px white;
+}
+
+div{
     display: flex;
     justify-content: center;
-    margin-left: 40px;
+
 }
 
 #logout:hover {

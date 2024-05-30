@@ -35,7 +35,7 @@ $stmt->close();
     <title>Dashboard</title>
     <link rel="icon" href="./Images/pikachuicon.png" />
 </head>
-<body style="background-image: url('./Images/dexboard.jpg');">
+<body>
     <header>
         <h1>Dashboard</h1>
     </header>
@@ -58,8 +58,9 @@ $stmt->close();
             </ul>
         </section>
     </main>
-    
+    <div>
     <button type="submit" id="logout">Logout</button>
+    </div>
 </body>
 </html>
 
