@@ -1,4 +1,4 @@
 # Projekcik-pokemon
 Projekt Pokemonowy Na Witrynki :)
 
-PROJEKT SKOŃCZONY  19:55  30/05/2024
+PROJEKT SKOŃCZONY  20:25  30/05/2024
